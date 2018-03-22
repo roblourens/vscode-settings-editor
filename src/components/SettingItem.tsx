@@ -22,19 +22,19 @@ interface ValueProps {
 
 function BoolSettingValue(props: ValueProps) {
     return (
-        <input type="checkbox" checked={props.setting.default} />
+        <input type="checkbox" defaultChecked={props.setting.default} />
     );
 }
 
 function StringSettingValue(props: ValueProps) {
     return (
-        <input value={props.setting.default} />
+        <input defaultValue={props.setting.default} />
     );
 }
 
 function NumberSettingValue(props: ValueProps) {
     return (
-        <input value={props.setting.default} />
+        <input defaultValue={props.setting.default} />
     );
 }
 
