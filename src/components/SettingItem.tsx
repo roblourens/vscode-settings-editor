@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { Setting, SettingType } from './Editor';
 import './SettingItem.css';
+import TextField from 'material-ui/TextField';
+import Checkbox from 'material-ui/Checkbox';
+import Select from 'material-ui/Select';
+import { MenuItem } from 'material-ui/Menu';
 
 export interface ItemProps {
     setting: Setting;
@@ -22,33 +26,33 @@ interface ValueProps {
 
 function BoolSettingValue(props: ValueProps) {
     return (
-        <input type="checkbox" defaultChecked={props.setting.default} />
+        <Checkbox defaultChecked={props.setting.default} />
     );
 }
 
 function StringSettingValue(props: ValueProps) {
     return (
-        <input defaultValue={props.setting.default} />
+        <TextField defaultValue={props.setting.default} />
     );
 }
 
 function NumberSettingValue(props: ValueProps) {
     return (
-        <input defaultValue={props.setting.default} />
+        <TextField defaultValue={props.setting.default} />
     );
 }
 
 function ObjectSettingValue(props: ValueProps) {
     return (
-        <input />
+        <TextField disabled={true} />
     );
 }
 
 function EnumSettingValue(props: ValueProps) {
     return (
-        <select>
-            {props.setting.enum!.map(enumStr => <option key={enumStr}>{enumStr}</option>)}
-        </select>
+        <Select value={props.setting.default}>
+            {props.setting.enum!.map(enumStr => <MenuItem key={enumStr} value={enumStr}>{enumStr}</MenuItem>)}
+        </Select>
     );
 }
 
