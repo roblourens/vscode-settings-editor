@@ -22,19 +22,19 @@ interface ValueProps {
 
 function BoolSettingValue(props: ValueProps) {
     return (
-        <input type="checkbox" />
+        <input type="checkbox" checked={props.setting.default} />
     );
 }
 
 function StringSettingValue(props: ValueProps) {
     return (
-        <input />
+        <input value={props.setting.default} />
     );
 }
 
 function NumberSettingValue(props: ValueProps) {
     return (
-        <input />
+        <input value={props.setting.default} />
     );
 }
 
@@ -44,9 +44,18 @@ function ObjectSettingValue(props: ValueProps) {
     );
 }
 
+function EnumSettingValue(props: ValueProps) {
+    return (
+        <select>
+            {props.setting.enum!.map(enumStr => <option key={enumStr}>{enumStr}</option>)}
+        </select>
+    );
+}
+
 function renderSettingValue(setting: Setting) {
     return (
         setting.type === SettingType[SettingType.boolean] ? <BoolSettingValue setting={setting} /> :
+        setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue setting={setting} /> :
         setting.type === SettingType[SettingType.string] ? <StringSettingValue setting={setting} /> :
         setting.type === SettingType[SettingType.number] ? <NumberSettingValue setting={setting} /> :
         setting.type === SettingType[SettingType.object] ? <ObjectSettingValue setting={setting} /> :
