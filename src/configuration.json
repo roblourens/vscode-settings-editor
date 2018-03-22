@@ -1,0 +1,100 @@
+{
+    "settings": [
+        {
+            "name": "files.autoSave",
+            "description": "Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "afterDelay",
+                "onFocusChange",
+                "onWindowChange"
+            ],
+            "enumDescriptions": [
+                "A dirty file is never automatically saved.",
+                "A dirty file is automatically saved after the configured 'files.autoSaveDelay'.",
+                "A dirty file is automatically saved when the editor loses focus.",
+                "A dirty file is automatically saved when the window loses focus."
+            ]
+        },
+        {
+            "name": "editor.fontSize",
+            "description": "Controls the font size in pixels.",
+            "default": 12,
+            "type": "number"
+        },
+        {
+            "name": "editor.fontFamily",
+            "description": "Controls the font family.",
+            "default": "Menlo, Monaco, 'Courier New', monospace",
+            "type": "string"
+        },
+        {
+            "name": "editor.tabSize",
+            "description": "The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.",
+            "default": 4,
+            "type": "number"
+        },
+        {
+            "name": "editor.renderWhitespace",
+            "description": "Controls how the editor should render whitespace characters, possibilities are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.",
+            "default": "none",
+            "type": "string",
+            "enum": [
+                "none",
+                "boundary",
+                "all"
+            ]
+        },
+        {
+            "name": "editor.cursorStyle",
+            "description": "Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'",
+            "default": "line",
+            "type": "string",
+            "enum": [
+                "block",
+                "block-outline",
+                "line",
+                "line-thin",
+                "underline",
+                "underline-thin"
+            ]
+        },
+        {
+            "name": "editor.multiCursorModifier",
+            "description": "The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on macOS. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.",
+            "default": "alt",
+            "type": "string",
+            "enum": [
+                "ctrlCmd",
+                "alt"
+            ],
+            "enumDescriptions": [
+                "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+                "Maps to `Alt` on Windows and Linux and to `Option` on macOS."
+            ]
+        },
+        {
+            "name": "editor.insertSpaces",
+            "description": "Insert spaces when pressing Tab. This setting is overridden based on the file contents when `editor.detectIndentation` is on.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "files.exclude",
+            "description": "Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.",
+            "default": {
+                "**/.git": true,
+                "**/.svn": true,
+                "**/.hg": true,
+                "**/CVS": true,
+                "**/.DS_Store": true
+            },
+            "type": "object"
+        }
+    ],
+    "buildTime": 1521616043969,
+    "commit": "5cc9bf1f7dffe52d79aaf4102cad8277dd9384a5",
+    "buildNumber": 122000958
+}

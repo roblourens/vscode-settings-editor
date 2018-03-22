@@ -1,0 +1,3558 @@
+{
+    "settings": [
+        {
+            "name": "[git-commit]",
+            "description": "Configure editor settings to be overridden for [git-commit] language.",
+            "default": {
+                "editor.rulers": [
+                    72
+                ]
+            },
+            "type": "object"
+        },
+        {
+            "name": "[go]",
+            "description": "Configure editor settings to be overridden for [go] language.",
+            "default": {
+                "editor.insertSpaces": false
+            },
+            "type": "object"
+        },
+        {
+            "name": "[json]",
+            "description": "Configure editor settings to be overridden for [json] language.",
+            "default": {
+                "editor.quickSuggestions": {
+                    "strings": true
+                }
+            },
+            "type": "object"
+        },
+        {
+            "name": "[makefile]",
+            "description": "Configure editor settings to be overridden for [makefile] language.",
+            "default": {
+                "editor.insertSpaces": false
+            },
+            "type": "object"
+        },
+        {
+            "name": "[markdown]",
+            "description": "Configure editor settings to be overridden for [markdown] language.",
+            "default": {
+                "editor.wordWrap": "on",
+                "editor.quickSuggestions": false
+            },
+            "type": "object"
+        },
+        {
+            "name": "[yaml]",
+            "description": "Configure editor settings to be overridden for [yaml] language.",
+            "default": {
+                "editor.insertSpaces": true,
+                "editor.tabSize": 2,
+                "editor.autoIndent": false
+            },
+            "type": "object"
+        },
+        {
+            "name": "css.colorDecorators.enable",
+            "description": "Enables or disables color decorators",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "css.lint.argumentsInColorFunction",
+            "description": "Invalid number of parameters",
+            "default": "error",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.boxModel",
+            "description": "Do not use width or height when using padding or border",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.compatibleVendorPrefixes",
+            "description": "When using a vendor-specific prefix make sure to also include all other vendor-specific properties",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.duplicateProperties",
+            "description": "Do not use duplicate style definitions",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.emptyRules",
+            "description": "Do not use empty rulesets",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.float",
+            "description": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.fontFaceProperties",
+            "description": "@font-face rule must define 'src' and 'font-family' properties",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.hexColorLength",
+            "description": "Hex colors must consist of three or six hex numbers",
+            "default": "error",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.idSelector",
+            "description": "Selectors should not contain IDs because these rules are too tightly coupled with the HTML.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.ieHack",
+            "description": "IE hacks are only necessary when supporting IE7 and older",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.important",
+            "description": "Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.importStatement",
+            "description": "Import statements do not load in parallel",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.propertyIgnoredDueToDisplay",
+            "description": "Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.universalSelector",
+            "description": "The universal selector (*) is known to be slow",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.unknownProperties",
+            "description": "Unknown property.",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.unknownVendorSpecificProperties",
+            "description": "Unknown vendor specific property.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.vendorPrefix",
+            "description": "When using a vendor-specific prefix also include the standard property",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.lint.zeroUnits",
+            "description": "No unit for zero needed",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "css.trace.server",
+            "description": "Traces the communication between VS Code and the CSS language server.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "messages",
+                "verbose"
+            ]
+        },
+        {
+            "name": "css.validate",
+            "description": "Enables or disables all validations",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "debug.allowBreakpointsEverywhere",
+            "description": "Allows setting breakpoint in any file",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "debug.hideActionBar",
+            "description": "Controls if the floating debug action bar should be hidden",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "debug.inlineValues",
+            "description": "Show variable values inline in editor while debugging",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "debug.internalConsoleOptions",
+            "description": "Controls behavior of the internal debug console.",
+            "default": "openOnFirstSessionStart",
+            "enum": [
+                "neverOpen",
+                "openOnSessionStart",
+                "openOnFirstSessionStart"
+            ]
+        },
+        {
+            "name": "debug.openDebug",
+            "description": "Controls whether debug view should be open on debugging session start.",
+            "default": "openOnFirstSessionStart",
+            "enum": [
+                "neverOpen",
+                "openOnSessionStart",
+                "openOnFirstSessionStart"
+            ]
+        },
+        {
+            "name": "debug.openExplorerOnEnd",
+            "description": "Automatically open explorer view on the end of a debug session",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "debug.showInStatusBar",
+            "description": "Controls when the debug status bar should be visible",
+            "default": "onFirstSessionStart",
+            "enum": [
+                "never",
+                "always",
+                "onFirstSessionStart"
+            ],
+            "enumDescriptions": [
+                "Never show debug in status bar",
+                "Always show debug in status bar",
+                "Show debug in status bar only after debug was started for the first time"
+            ]
+        },
+        {
+            "name": "diffEditor.ignoreTrimWhitespace",
+            "description": "Controls if the diff editor shows changes in leading or trailing whitespace as diffs",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "diffEditor.renderIndicators",
+            "description": "Controls if the diff editor shows +/- indicators for added/removed changes",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "diffEditor.renderSideBySide",
+            "description": "Controls if the diff editor shows the diff side by side or inline",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.acceptSuggestionOnCommitCharacter",
+            "description": "Controls if suggestions should be accepted on commit characters. For instance in JavaScript the semi-colon (';') can be a commit character that accepts a suggestion and types that character.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.acceptSuggestionOnEnter",
+            "description": "Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "on",
+                "smart",
+                "off"
+            ]
+        },
+        {
+            "name": "editor.accessibilitySupport",
+            "description": "Controls whether the editor should run in a mode where it is optimized for screen readers.",
+            "default": "auto",
+            "type": "string",
+            "enum": [
+                "auto",
+                "on",
+                "off"
+            ],
+            "enumDescriptions": [
+                "The editor will use platform APIs to detect when a Screen Reader is attached.",
+                "The editor will be permanently optimized for usage with a Screen Reader.",
+                "The editor will never be optimized for usage with a Screen Reader."
+            ]
+        },
+        {
+            "name": "editor.autoClosingBrackets",
+            "description": "Controls if the editor should automatically close brackets after opening them",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.autoIndent",
+            "description": "Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.codeLens",
+            "description": "Controls if the editor shows code lenses",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.colorDecorators",
+            "description": "Controls whether the editor should render the inline color decorators and color picker.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.cursorBlinking",
+            "description": "Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'",
+            "default": "blink",
+            "type": "string",
+            "enum": [
+                "blink",
+                "smooth",
+                "phase",
+                "expand",
+                "solid"
+            ]
+        },
+        {
+            "name": "editor.cursorStyle",
+            "description": "Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'",
+            "default": "line",
+            "type": "string",
+            "enum": [
+                "block",
+                "block-outline",
+                "line",
+                "line-thin",
+                "underline",
+                "underline-thin"
+            ]
+        },
+        {
+            "name": "editor.cursorWidth",
+            "description": "Controls the width of the cursor when editor.cursorStyle is set to 'line'",
+            "default": 0,
+            "type": "integer"
+        },
+        {
+            "name": "editor.detectIndentation",
+            "description": "When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.dragAndDrop",
+            "description": "Controls if the editor should allow to move selections via drag and drop.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.emptySelectionClipboard",
+            "description": "Controls whether copying without a selection copies the current line.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.find.autoFindInSelection",
+            "description": "Controls if Find in Selection flag is turned on when multiple characters or lines of text are selected in the editor",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.find.globalFindClipboard",
+            "description": "Controls if the Find Widget should read or modify the shared find clipboard on macOS",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.find.seedSearchStringFromSelection",
+            "description": "Controls if we seed the search string in Find Widget from editor selection",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.folding",
+            "description": "Controls whether the editor has code folding enabled",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.fontFamily",
+            "description": "Controls the font family.",
+            "default": "Menlo, Monaco, 'Courier New', monospace",
+            "type": "string"
+        },
+        {
+            "name": "editor.fontLigatures",
+            "description": "Enables font ligatures",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.fontSize",
+            "description": "Controls the font size in pixels.",
+            "default": 12,
+            "type": "number"
+        },
+        {
+            "name": "editor.fontWeight",
+            "description": "Controls the font weight.",
+            "default": "normal",
+            "type": "string",
+            "enum": [
+                "normal",
+                "bold",
+                "100",
+                "200",
+                "300",
+                "400",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ]
+        },
+        {
+            "name": "editor.formatOnPaste",
+            "description": "Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.formatOnSave",
+            "description": "Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.formatOnSaveTimeout",
+            "description": "Format on save timeout. Specifies a time limit in milliseconds for formatOnSave-commands. Commands taking longer than the specified timeout will be cancelled.",
+            "default": 750,
+            "type": "number"
+        },
+        {
+            "name": "editor.formatOnType",
+            "description": "Controls if the editor should automatically format the line after typing",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.glyphMargin",
+            "description": "Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.hideCursorInOverviewRuler",
+            "description": "Controls if the cursor should be hidden in the overview ruler.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.insertSpaces",
+            "description": "Insert spaces when pressing Tab. This setting is overridden based on the file contents when `editor.detectIndentation` is on.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.letterSpacing",
+            "description": "Controls the letter spacing in pixels.",
+            "default": 0,
+            "type": "number"
+        },
+        {
+            "name": "editor.lightbulb.enabled",
+            "description": "Enables the code action lightbulb",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.lineHeight",
+            "description": "Controls the line height. Use 0 to compute the lineHeight from the fontSize.",
+            "default": 0,
+            "type": "number"
+        },
+        {
+            "name": "editor.lineNumbers",
+            "description": "Controls the display of line numbers. Possible values are 'on', 'off', 'relative' and 'interval'.",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "off",
+                "on",
+                "relative",
+                "interval"
+            ],
+            "enumDescriptions": [
+                "Line numbers are not rendered.",
+                "Line numbers are rendered as absolute number.",
+                "Line numbers are rendered as distance in lines to cursor position.",
+                "Line numbers are rendered every 10 lines."
+            ]
+        },
+        {
+            "name": "editor.links",
+            "description": "Controls whether the editor should detect links and make them clickable",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.matchBrackets",
+            "description": "Highlight matching brackets when one of them is selected.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.minimap.enabled",
+            "description": "Controls if the minimap is shown",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.minimap.maxColumn",
+            "description": "Limit the width of the minimap to render at most a certain number of columns",
+            "default": 120,
+            "type": "number"
+        },
+        {
+            "name": "editor.minimap.renderCharacters",
+            "description": "Render the actual characters on a line (as opposed to color blocks)",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.minimap.showSlider",
+            "description": "Controls whether the minimap slider is automatically hidden. Possible values are 'always' and 'mouseover'",
+            "default": "mouseover",
+            "type": "string",
+            "enum": [
+                "always",
+                "mouseover"
+            ]
+        },
+        {
+            "name": "editor.minimap.side",
+            "description": "Controls the side where to render the minimap. Possible values are 'right' and 'left'",
+            "default": "right",
+            "type": "string",
+            "enum": [
+                "left",
+                "right"
+            ]
+        },
+        {
+            "name": "editor.mouseWheelScrollSensitivity",
+            "description": "A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events",
+            "default": 1,
+            "type": "number"
+        },
+        {
+            "name": "editor.mouseWheelZoom",
+            "description": "Zoom the font of the editor when using mouse wheel and holding Ctrl",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.multiCursorModifier",
+            "description": "The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on macOS. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.",
+            "default": "alt",
+            "type": "string",
+            "enum": [
+                "ctrlCmd",
+                "alt"
+            ],
+            "enumDescriptions": [
+                "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+                "Maps to `Alt` on Windows and Linux and to `Option` on macOS."
+            ]
+        },
+        {
+            "name": "editor.occurrencesHighlight",
+            "description": "Controls whether the editor should highlight semantic symbol occurrences",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.overviewRulerBorder",
+            "description": "Controls if a border should be drawn around the overview ruler.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.overviewRulerLanes",
+            "description": "Controls the number of decorations that can show up at the same position in the overview ruler",
+            "default": 3,
+            "type": "integer"
+        },
+        {
+            "name": "editor.parameterHints",
+            "description": "Enables pop-up that shows parameter documentation and type information as you type",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.quickSuggestions",
+            "description": "Controls if suggestions should automatically show up while typing",
+            "default": {
+                "other": true,
+                "comments": false,
+                "strings": false
+            }
+        },
+        {
+            "name": "editor.quickSuggestionsDelay",
+            "description": "Controls the delay in ms after which quick suggestions will show up",
+            "default": 10,
+            "type": "integer"
+        },
+        {
+            "name": "editor.renderControlCharacters",
+            "description": "Controls whether the editor should render control characters",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.renderIndentGuides",
+            "description": "Controls whether the editor should render indent guides",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.renderLineHighlight",
+            "description": "Controls how the editor should render the current line highlight, possibilities are 'none', 'gutter', 'line', and 'all'.",
+            "default": "line",
+            "type": "string",
+            "enum": [
+                "none",
+                "gutter",
+                "line",
+                "all"
+            ]
+        },
+        {
+            "name": "editor.renderWhitespace",
+            "description": "Controls how the editor should render whitespace characters, possibilities are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.",
+            "default": "none",
+            "type": "string",
+            "enum": [
+                "none",
+                "boundary",
+                "all"
+            ]
+        },
+        {
+            "name": "editor.roundedSelection",
+            "description": "Controls if selections have rounded corners",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.rulers",
+            "description": "Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty",
+            "default": [],
+            "type": "array"
+        },
+        {
+            "name": "editor.scrollBeyondLastLine",
+            "description": "Controls if the editor will scroll beyond the last line",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.selectionClipboard",
+            "description": "Controls if the Linux primary clipboard should be supported.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.selectionHighlight",
+            "description": "Controls whether the editor should highlight similar matches to the selection",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.showFoldingControls",
+            "description": "Controls whether the fold controls on the gutter are automatically hidden.",
+            "default": "mouseover",
+            "type": "string",
+            "enum": [
+                "always",
+                "mouseover"
+            ]
+        },
+        {
+            "name": "editor.smoothScrolling",
+            "description": "Controls if the editor will scroll using an animation",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.snippetSuggestions",
+            "description": "Controls whether snippets are shown with other suggestions and how they are sorted.",
+            "default": "inline",
+            "type": "string",
+            "enum": [
+                "top",
+                "bottom",
+                "inline",
+                "none"
+            ],
+            "enumDescriptions": [
+                "Show snippet suggestions on top of other suggestions.",
+                "Show snippet suggestions below other suggestions.",
+                "Show snippets suggestions with other suggestions.",
+                "Do not show snippet suggestions."
+            ]
+        },
+        {
+            "name": "editor.stablePeek",
+            "description": "Keep peek editors open even when double clicking their content or when hitting Escape.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.suggestFontSize",
+            "description": "Font size for the suggest widget",
+            "default": 0,
+            "type": "integer"
+        },
+        {
+            "name": "editor.suggestLineHeight",
+            "description": "Line height for the suggest widget",
+            "default": 0,
+            "type": "integer"
+        },
+        {
+            "name": "editor.suggestOnTriggerCharacters",
+            "description": "Controls if suggestions should automatically show up when typing trigger characters",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.suggestSelection",
+            "description": "Controls how suggestions are pre-selected when showing the suggest list.",
+            "default": "recentlyUsed",
+            "type": "string",
+            "enum": [
+                "first",
+                "recentlyUsed",
+                "recentlyUsedByPrefix"
+            ],
+            "enumDescriptions": [
+                "Always select the first suggestion.",
+                "Select recent suggestions unless further typing selects one, e.g. `console.| -> console.log` because `log` has been completed recently.",
+                "Select suggestions based on previous prefixes that have completed those suggestions, e.g. `co -> console` and `con -> const`."
+            ]
+        },
+        {
+            "name": "editor.tabCompletion",
+            "description": "Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.tabSize",
+            "description": "The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.",
+            "default": 4,
+            "type": "number"
+        },
+        {
+            "name": "editor.tokenColorCustomizations",
+            "description": "Overrides editor colors and font style from the currently selected color theme.",
+            "default": {}
+        },
+        {
+            "name": "editor.trimAutoWhitespace",
+            "description": "Remove trailing auto inserted whitespace",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.useTabStops",
+            "description": "Inserting and deleting whitespace follows tab stops",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.wordBasedSuggestions",
+            "description": "Controls whether completions should be computed based on words in the document.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "editor.wordSeparators",
+            "description": "Characters that will be used as word separators when doing word related navigations or operations",
+            "default": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
+            "type": "string"
+        },
+        {
+            "name": "editor.wordWrap",
+            "description": "Controls how lines should wrap. Can be:\n - 'off' (disable wrapping),\n - 'on' (viewport wrapping),\n - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or\n - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "on",
+                "wordWrapColumn",
+                "bounded"
+            ],
+            "enumDescriptions": [
+                "Lines will never wrap.",
+                "Lines will wrap at the viewport width.",
+                "Lines will wrap at `editor.wordWrapColumn`.",
+                "Lines will wrap at the minimum of viewport and `editor.wordWrapColumn`."
+            ]
+        },
+        {
+            "name": "editor.wordWrapColumn",
+            "description": "Controls the wrapping column of the editor when `editor.wordWrap` is 'wordWrapColumn' or 'bounded'.",
+            "default": 80,
+            "type": "integer"
+        },
+        {
+            "name": "editor.wrappingIndent",
+            "description": "Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.",
+            "default": "same",
+            "type": "string",
+            "enum": [
+                "none",
+                "same",
+                "indent"
+            ]
+        },
+        {
+            "name": "emmet.excludeLanguages",
+            "description": "An array of languages where Emmet abbreviations should not be expanded.",
+            "default": [
+                "markdown"
+            ],
+            "type": "array"
+        },
+        {
+            "name": "emmet.extensionsPath",
+            "description": "Path to a folder containing Emmet profiles and snippets.'",
+            "default": null,
+            "type": "string"
+        },
+        {
+            "name": "emmet.includeLanguages",
+            "description": "Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.\n Eg: {\"vue-html\": \"html\", \"javascript\": \"javascriptreact\"}",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "emmet.preferences",
+            "description": "Preferences used to modify behavior of some actions and resolvers of Emmet.",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "emmet.showAbbreviationSuggestions",
+            "description": "Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to \"never\".",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "emmet.showExpandedAbbreviation",
+            "description": "Shows expanded Emmet abbreviations as suggestions.\nThe option \"inMarkupAndStylesheetFilesOnly\" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.\nThe option \"always\" applies to all parts of the file regardless of markup/css.",
+            "default": "always",
+            "type": [
+                "string"
+            ],
+            "enum": [
+                "never",
+                "always",
+                "inMarkupAndStylesheetFilesOnly"
+            ]
+        },
+        {
+            "name": "emmet.showSuggestionsAsSnippets",
+            "description": "If true, then Emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "emmet.syntaxProfiles",
+            "description": "Define profile for specified syntax or use your own profile with specific rules.",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "emmet.triggerExpansionOnTab",
+            "description": "When enabled, Emmet abbreviations are expanded when pressing TAB.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "emmet.variables",
+            "description": "Variables to be used in Emmet snippets",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "explorer.autoReveal",
+            "description": "Controls if the explorer should automatically reveal and select files when opening them.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "explorer.confirmDelete",
+            "description": "Controls if the explorer should ask for confirmation when deleting a file via the trash.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "explorer.confirmDragAndDrop",
+            "description": "Controls if the explorer should ask for confirmation to move files and folders via drag and drop.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "explorer.decorations.badges",
+            "description": "Controls if file decorations should use badges.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "explorer.decorations.colors",
+            "description": "Controls if file decorations should use colors.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "explorer.enableDragAndDrop",
+            "description": "Controls if the explorer should allow to move files and folders via drag and drop.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "explorer.openEditors.visible",
+            "description": "Number of editors shown in the Open Editors pane.",
+            "default": 9,
+            "type": "number"
+        },
+        {
+            "name": "explorer.sortOrder",
+            "description": "Controls sorting order of files and folders in the explorer. In addition to the default sorting, you can set the order to 'mixed' (files and folders sorted combined), 'type' (by file type), 'modified' (by last modified date) or 'filesFirst' (sort files before folders).",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "default",
+                "mixed",
+                "filesFirst",
+                "type",
+                "modified"
+            ],
+            "enumDescriptions": [
+                "Files and folders are sorted by their names, in alphabetical order. Folders are displayed before files.",
+                "Files and folders are sorted by their names, in alphabetical order. Files are interwoven with folders.",
+                "Files and folders are sorted by their names, in alphabetical order. Files are displayed before folders.",
+                "Files and folders are sorted by their extensions, in alphabetical order. Folders are displayed before files.",
+                "Files and folders are sorted by last modified date, in descending order. Folders are displayed before files."
+            ]
+        },
+        {
+            "name": "extensions.autoUpdate",
+            "description": "Automatically update extensions",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "extensions.ignoreRecommendations",
+            "description": "If set to true, the notifications for extension recommendations will stop showing up.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "extensions.showRecommendationsOnlyOnDemand",
+            "description": "If set to true, recommendations will not be fetched or shown unless specifically requested by the user.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "files.associations",
+            "description": "Configure file associations to languages (e.g. \"*.extension\": \"html\"). These have precedence over the default associations of the languages installed.",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "files.autoGuessEncoding",
+            "description": "When enabled, will attempt to guess the character set encoding when opening files. This setting can be configured per language too.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "files.autoSave",
+            "description": "Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "afterDelay",
+                "onFocusChange",
+                "onWindowChange"
+            ],
+            "enumDescriptions": [
+                "A dirty file is never automatically saved.",
+                "A dirty file is automatically saved after the configured 'files.autoSaveDelay'.",
+                "A dirty file is automatically saved when the editor loses focus.",
+                "A dirty file is automatically saved when the window loses focus."
+            ]
+        },
+        {
+            "name": "files.autoSaveDelay",
+            "description": "Controls the delay in ms after which a dirty file is saved automatically. Only applies when 'files.autoSave' is set to 'afterDelay'",
+            "default": 1000,
+            "type": "number"
+        },
+        {
+            "name": "files.defaultLanguage",
+            "description": "The default language mode that is assigned to new files.",
+            "default": "",
+            "type": "string"
+        },
+        {
+            "name": "files.encoding",
+            "description": "The default character set encoding to use when reading and writing files. This setting can be configured per language too.",
+            "default": "utf8",
+            "type": "string",
+            "enum": [
+                "utf8",
+                "utf8bom",
+                "utf16le",
+                "utf16be",
+                "windows1252",
+                "iso88591",
+                "iso88593",
+                "iso885915",
+                "macroman",
+                "cp437",
+                "windows1256",
+                "iso88596",
+                "windows1257",
+                "iso88594",
+                "iso885914",
+                "windows1250",
+                "iso88592",
+                "cp852",
+                "windows1251",
+                "cp866",
+                "iso88595",
+                "koi8r",
+                "koi8u",
+                "iso885913",
+                "windows1253",
+                "iso88597",
+                "windows1255",
+                "iso88598",
+                "iso885910",
+                "iso885916",
+                "windows1254",
+                "iso88599",
+                "windows1258",
+                "gbk",
+                "gb18030",
+                "cp950",
+                "big5hkscs",
+                "shiftjis",
+                "eucjp",
+                "euckr",
+                "windows874",
+                "iso885911",
+                "koi8ru",
+                "koi8t",
+                "gb2312",
+                "cp865",
+                "cp850"
+            ],
+            "enumDescriptions": [
+                "UTF-8",
+                "UTF-8 with BOM",
+                "UTF-16 LE",
+                "UTF-16 BE",
+                "Western (Windows 1252)",
+                "Western (ISO 8859-1)",
+                "Western (ISO 8859-3)",
+                "Western (ISO 8859-15)",
+                "Western (Mac Roman)",
+                "DOS (CP 437)",
+                "Arabic (Windows 1256)",
+                "Arabic (ISO 8859-6)",
+                "Baltic (Windows 1257)",
+                "Baltic (ISO 8859-4)",
+                "Celtic (ISO 8859-14)",
+                "Central European (Windows 1250)",
+                "Central European (ISO 8859-2)",
+                "Central European (CP 852)",
+                "Cyrillic (Windows 1251)",
+                "Cyrillic (CP 866)",
+                "Cyrillic (ISO 8859-5)",
+                "Cyrillic (KOI8-R)",
+                "Cyrillic (KOI8-U)",
+                "Estonian (ISO 8859-13)",
+                "Greek (Windows 1253)",
+                "Greek (ISO 8859-7)",
+                "Hebrew (Windows 1255)",
+                "Hebrew (ISO 8859-8)",
+                "Nordic (ISO 8859-10)",
+                "Romanian (ISO 8859-16)",
+                "Turkish (Windows 1254)",
+                "Turkish (ISO 8859-9)",
+                "Vietnamese (Windows 1258)",
+                "Chinese (GBK)",
+                "Chinese (GB18030)",
+                "Traditional Chinese (Big5)",
+                "Traditional Chinese (Big5-HKSCS)",
+                "Japanese (Shift JIS)",
+                "Japanese (EUC-JP)",
+                "Korean (EUC-KR)",
+                "Thai (Windows 874)",
+                "Latin/Thai (ISO 8859-11)",
+                "Cyrillic (KOI8-RU)",
+                "Tajik (KOI8-T)",
+                "Simplified Chinese (GB 2312)",
+                "Nordic DOS (CP 865)",
+                "Western European DOS (CP 850)"
+            ]
+        },
+        {
+            "name": "files.eol",
+            "description": "The default end of line character. Use \\n for LF and \\r\\n for CRLF.",
+            "default": "\n",
+            "type": "string",
+            "enum": [
+                "\n",
+                "\r\n"
+            ]
+        },
+        {
+            "name": "files.exclude",
+            "description": "Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.",
+            "default": {
+                "**/.git": true,
+                "**/.svn": true,
+                "**/.hg": true,
+                "**/CVS": true,
+                "**/.DS_Store": true
+            },
+            "type": "object"
+        },
+        {
+            "name": "files.hotExit",
+            "description": "Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.",
+            "default": "onExit",
+            "type": "string",
+            "enum": [
+                "off",
+                "onExit",
+                "onExitAndWindowClose"
+            ],
+            "enumDescriptions": [
+                "Disable hot exit.",
+                "Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the workbench.action.quit command is triggered (command palette, keybinding, menu). All windows with backups will be restored upon next launch.",
+                "Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the workbench.action.quit command is triggered (command palette, keybinding, menu), and also for any window with a folder opened regardless of whether it's the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown set \"window.restoreWindows\" to \"all\"."
+            ]
+        },
+        {
+            "name": "files.insertFinalNewline",
+            "description": "When enabled, insert a final new line at the end of the file when saving it.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "files.maxMemoryForLargeFilesMB",
+            "description": "The new limit on memory in MB to be used by the application when trying to open large files. Alternatively, you can launch the application with --max-memory=NEWSIZE.",
+            "default": 4096,
+            "type": "number"
+        },
+        {
+            "name": "files.trimFinalNewlines",
+            "description": "When enabled, will trim all new lines after the final new line at the end of the file when saving it.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "files.trimTrailingWhitespace",
+            "description": "When enabled, will trim trailing whitespace when saving a file.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "files.useExperimentalFileWatcher",
+            "description": "Use the new experimental file watcher.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "files.watcherExclude",
+            "description": "Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.",
+            "default": {
+                "**/.git/objects/**": true,
+                "**/.git/subtree-cache/**": true,
+                "**/node_modules/**": true
+            },
+            "type": "object"
+        },
+        {
+            "name": "git.autofetch",
+            "description": "Whether auto fetching is enabled",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.autorefresh",
+            "description": "Whether auto refreshing is enabled",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "git.autoRepositoryDetection",
+            "description": "Whether repositories should be automatically detected",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "git.checkoutType",
+            "description": "Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branches, `tags` shows only tags and `remote` shows only remote branches.",
+            "default": "all",
+            "type": "string",
+            "enum": [
+                "all",
+                "local",
+                "tags",
+                "remote"
+            ]
+        },
+        {
+            "name": "git.confirmSync",
+            "description": "Confirm before synchronizing git repositories",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "git.countBadge",
+            "description": "Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.",
+            "default": "all",
+            "type": "string",
+            "enum": [
+                "all",
+                "tracked",
+                "off"
+            ]
+        },
+        {
+            "name": "git.decorations.enabled",
+            "description": "Controls if Git contributes colors and badges to the explorer and the open editors view.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "git.defaultCloneDirectory",
+            "description": "The default location where to clone a git repository",
+            "default": null,
+            "type": "string"
+        },
+        {
+            "name": "git.detectSubmodules",
+            "description": "Controls whether to automatically detect git submodules.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "git.detectSubmodulesLimit",
+            "description": "Controls the limit of git submodules detected.",
+            "default": 10,
+            "type": "number"
+        },
+        {
+            "name": "git.enableCommitSigning",
+            "description": "Enables commit signing with GPG.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.enabled",
+            "description": "Whether git is enabled",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "git.enableSmartCommit",
+            "description": "Commit all changes when there are no staged changes.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.ignoreLegacyWarning",
+            "description": "Ignores the legacy Git warning",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.ignoreLimitWarning",
+            "description": "Ignores the warning when there are too many changes in a repository",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.ignoreMissingGitWarning",
+            "description": "Ignores the warning when Git is missing",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.inputValidation",
+            "description": "Controls when to show commit message input validation.",
+            "default": "warn",
+            "type": "string",
+            "enum": [
+                "always",
+                "warn",
+                "off"
+            ]
+        },
+        {
+            "name": "git.path",
+            "description": "Path to the git executable",
+            "default": null,
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "git.promptToSaveFilesBeforeCommit",
+            "description": "Controls whether Git should check for unsaved files before committing.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "git.showInlineOpenFileAction",
+            "description": "Controls whether to show an inline Open File action in the Git changes view.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "grunt.autoDetect",
+            "description": "Controls whether auto detection of Grunt tasks is on or off. Default is on.",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "off",
+                "on"
+            ]
+        },
+        {
+            "name": "gulp.autoDetect",
+            "description": "Controls whether auto detection of Gulp tasks is on or off. Default is on.",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "off",
+                "on"
+            ]
+        },
+        {
+            "name": "html.autoClosingTags",
+            "description": "Enable/disable autoclosing of HTML tags.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.format.contentUnformatted",
+            "description": "List of tags, comma separated, where the content shouldn't be reformatted. 'null' defaults to the 'pre' tag.",
+            "default": "pre,code,textarea",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "html.format.enable",
+            "description": "Enable/disable default HTML formatter",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.format.endWithNewline",
+            "description": "End with a newline.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "html.format.extraLiners",
+            "description": "List of tags, comma separated, that should have an extra newline before them. 'null' defaults to \"head, body, /html\".",
+            "default": "head, body, /html",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "html.format.indentHandlebars",
+            "description": "Format and indent {{#foo}} and {{/foo}}.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "html.format.indentInnerHtml",
+            "description": "Indent <head> and <body> sections.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "html.format.maxPreserveNewLines",
+            "description": "Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.",
+            "default": null,
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        {
+            "name": "html.format.preserveNewLines",
+            "description": "Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.format.unformatted",
+            "description": "List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.",
+            "default": "wbr",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "html.format.wrapAttributes",
+            "description": "Wrap attributes.",
+            "default": "auto",
+            "type": "string",
+            "enum": [
+                "auto",
+                "force",
+                "force-aligned",
+                "force-expand-multiline"
+            ],
+            "enumDescriptions": [
+                "Wrap attributes only when line length is exceeded.",
+                "Wrap each attribute except first.",
+                "Wrap each attribute except first and keep aligned.",
+                "Wrap each attribute."
+            ]
+        },
+        {
+            "name": "html.format.wrapLineLength",
+            "description": "Maximum amount of characters per line (0 = disable).",
+            "default": 120,
+            "type": "integer"
+        },
+        {
+            "name": "html.suggest.angular1",
+            "description": "Configures if the built-in HTML language support suggests Angular V1 tags and properties.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.suggest.html5",
+            "description": "Configures if the built-in HTML language support suggests HTML5 tags, properties and values.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.suggest.ionic",
+            "description": "Configures if the built-in HTML language support suggests Ionic tags, properties and values.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.trace.server",
+            "description": "Traces the communication between VS Code and the HTML language server.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "messages",
+                "verbose"
+            ]
+        },
+        {
+            "name": "html.validate.scripts",
+            "description": "Configures if the built-in HTML language support validates embedded scripts.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "html.validate.styles",
+            "description": "Configures if the built-in HTML language support validates embedded styles.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "http.proxy",
+            "description": "The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables",
+            "default": "",
+            "type": "string"
+        },
+        {
+            "name": "http.proxyAuthorization",
+            "description": "The value to send as the 'Proxy-Authorization' header for every network request.",
+            "default": null,
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "name": "http.proxyStrictSSL",
+            "description": "Whether the proxy server certificate should be verified against the list of supplied CAs.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "jake.autoDetect",
+            "description": "Controls whether auto detection of Jake tasks is on or off. Default is on.",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "off",
+                "on"
+            ]
+        },
+        {
+            "name": "javascript.format.enable",
+            "description": "Enable/disable default JavaScript formatter.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterCommaDelimiter",
+            "description": "Defines space handling after a comma delimiter.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterConstructor",
+            "description": "Defines space handling after the constructor keyword. Requires TypeScript >= 2.3.0.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions",
+            "description": "Defines space handling after function keyword for anonymous functions.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements",
+            "description": "Defines space handling after keywords in a control flow statement.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces",
+            "description": "Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces",
+            "description": "Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets",
+            "description": "Defines space handling after opening and before closing non empty brackets.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis",
+            "description": "Defines space handling after opening and before closing non empty parenthesis.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces",
+            "description": "Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceAfterSemicolonInForStatements",
+            "description": " Defines space handling after a semicolon in a for statement.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceBeforeAndAfterBinaryOperators",
+            "description": "Defines space handling after a binary operator.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.insertSpaceBeforeFunctionParenthesis",
+            "description": "Defines space handling before function argument parentheses. Requires TypeScript >= 2.1.5.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.placeOpenBraceOnNewLineForControlBlocks",
+            "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.format.placeOpenBraceOnNewLineForFunctions",
+            "description": "Defines whether an open brace is put onto a new line for functions or not.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.implicitProjectConfig.checkJs",
+            "description": "Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.implicitProjectConfig.experimentalDecorators",
+            "description": "Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.nameSuggestions",
+            "description": "Enable/disable including unique names from the file in JavaScript suggestion lists.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.referencesCodeLens.enabled",
+            "description": "Enable/disable references CodeLens in JavaScript files.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "javascript.validate.enable",
+            "description": "Enable/disable JavaScript validation.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "jsDocCompletion.enabled",
+            "description": "Enable/disable auto JSDoc comments",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "json.colorDecorators.enable",
+            "description": "Enables or disables color decorators",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "json.format.enable",
+            "description": "Enable/disable default JSON formatter (requires restart)",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "json.schemas",
+            "description": "Associate schemas to JSON files in the current project",
+            "default": [],
+            "type": "array"
+        },
+        {
+            "name": "json.trace.server",
+            "description": "Traces the communication between VS Code and the JSON language server.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "messages",
+                "verbose"
+            ]
+        },
+        {
+            "name": "keyboard.dispatch",
+            "description": "Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.",
+            "default": "code",
+            "type": "string",
+            "enum": [
+                "code",
+                "keyCode"
+            ]
+        },
+        {
+            "name": "keyboard.touchbar.enabled",
+            "description": "Enables the macOS touchbar buttons on the keyboard if available.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "launch",
+            "description": "Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces",
+            "default": {
+                "configurations": [],
+                "compounds": []
+            },
+            "type": "object"
+        },
+        {
+            "name": "less.colorDecorators.enable",
+            "description": "Enables or disables color decorators",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "less.lint.argumentsInColorFunction",
+            "description": "Invalid number of parameters",
+            "default": "error",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.boxModel",
+            "description": "Do not use width or height when using padding or border",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.compatibleVendorPrefixes",
+            "description": "When using a vendor-specific prefix make sure to also include all other vendor-specific properties",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.duplicateProperties",
+            "description": "Do not use duplicate style definitions",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.emptyRules",
+            "description": "Do not use empty rulesets",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.float",
+            "description": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.fontFaceProperties",
+            "description": "@font-face rule must define 'src' and 'font-family' properties",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.hexColorLength",
+            "description": "Hex colors must consist of three or six hex numbers",
+            "default": "error",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.idSelector",
+            "description": "Selectors should not contain IDs because these rules are too tightly coupled with the HTML.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.ieHack",
+            "description": "IE hacks are only necessary when supporting IE7 and older",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.important",
+            "description": "Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.importStatement",
+            "description": "Import statements do not load in parallel",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.propertyIgnoredDueToDisplay",
+            "description": "Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.universalSelector",
+            "description": "The universal selector (*) is known to be slow",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.unknownProperties",
+            "description": "Unknown property.",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.unknownVendorSpecificProperties",
+            "description": "Unknown vendor specific property.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.vendorPrefix",
+            "description": "When using a vendor-specific prefix also include the standard property",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.lint.zeroUnits",
+            "description": "No unit for zero needed",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "less.validate",
+            "description": "Enables or disables all validations",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.breaks",
+            "description": "Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.doubleClickToSwitchToEditor",
+            "description": "Double click in the markdown preview to switch to the editor.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.fontFamily",
+            "description": "Controls the font family used in the markdown preview.",
+            "default": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+            "type": "string"
+        },
+        {
+            "name": "markdown.preview.fontSize",
+            "description": "Controls the font size in pixels used in the markdown preview.",
+            "default": 14,
+            "type": "number"
+        },
+        {
+            "name": "markdown.preview.lineHeight",
+            "description": "Controls the line height used in the markdown preview. This number is relative to the font size.",
+            "default": 1.6,
+            "type": "number"
+        },
+        {
+            "name": "markdown.preview.linkify",
+            "description": "Enable or disable conversion of URL-like text to links in the markdown preview.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.markEditorSelection",
+            "description": "Mark the current editor selection in the markdown preview.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.scrollEditorWithPreview",
+            "description": "When a markdown preview is scrolled, update the view of the editor.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.scrollPreviewWithEditor",
+            "description": "When a markdown editor is scrolled, update the view of the preview.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.preview.scrollPreviewWithEditorSelection",
+            "description": "[Deprecated] Scrolls the markdown preview to reveal the currently selected line from the editor.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "markdown.previewFrontMatter",
+            "description": "Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.",
+            "default": "hide",
+            "type": "string",
+            "enum": [
+                "hide",
+                "show"
+            ]
+        },
+        {
+            "name": "markdown.styles",
+            "description": "A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\\' need to be written as '\\\\'.",
+            "default": [],
+            "type": "array"
+        },
+        {
+            "name": "markdown.trace",
+            "description": "Enable debug logging for the markdown extension.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "verbose"
+            ]
+        },
+        {
+            "name": "merge-conflict.codeLens.enabled",
+            "description": "Enable/disable merge conflict block CodeLens within editor",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "merge-conflict.decorators.enabled",
+            "description": "Enable/disable merge conflict decorators within editor",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "npm.autoDetect",
+            "description": "Controls whether auto detection of npm scripts is on or off. Default is on.",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "off",
+                "on"
+            ]
+        },
+        {
+            "name": "npm.exclude",
+            "description": "Configure glob patterns for folders that should be excluded from automatic script detection.",
+            "default": "",
+            "type": [
+                "string",
+                "array"
+            ]
+        },
+        {
+            "name": "npm.packageManager",
+            "description": "The package manager used to run scripts.",
+            "default": "npm",
+            "type": "string",
+            "enum": [
+                "npm",
+                "yarn"
+            ]
+        },
+        {
+            "name": "npm.runSilent",
+            "description": "Run npm commands with the `--silent` option.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "php.suggest.basic",
+            "description": "Configures if the built-in PHP language suggestions are enabled. The support suggests PHP globals and variables.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "php.validate.enable",
+            "description": "Enable/disable built-in PHP validation.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "php.validate.executablePath",
+            "description": "Points to the PHP executable.",
+            "default": null,
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "php.validate.run",
+            "description": "Whether the linter is run on save or on type.",
+            "default": "onSave",
+            "type": "string",
+            "enum": [
+                "onSave",
+                "onType"
+            ]
+        },
+        {
+            "name": "problems.autoReveal",
+            "description": "Controls if Problems view should automatically reveal files when opening them",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "problems.decorations.enabled",
+            "description": "Show Errors & Warnings on files and folder.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "scm.alwaysShowProviders",
+            "description": "Whether to always show the Source Control Provider section.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "scm.diffDecorations",
+            "description": "Controls diff decorations in the editor.",
+            "default": "all",
+            "type": "string",
+            "enum": [
+                "all",
+                "gutter",
+                "overview",
+                "none"
+            ]
+        },
+        {
+            "name": "scm.diffDecorationsGutterWidth",
+            "description": "Controls the width(px) of diff decorations in gutter (added & modified).",
+            "default": 3,
+            "type": "number",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        {
+            "name": "scss.colorDecorators.enable",
+            "description": "Enables or disables color decorators",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "scss.lint.argumentsInColorFunction",
+            "description": "Invalid number of parameters",
+            "default": "error",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.boxModel",
+            "description": "Do not use width or height when using padding or border",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.compatibleVendorPrefixes",
+            "description": "When using a vendor-specific prefix make sure to also include all other vendor-specific properties",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.duplicateProperties",
+            "description": "Do not use duplicate style definitions",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.emptyRules",
+            "description": "Do not use empty rulesets",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.float",
+            "description": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.fontFaceProperties",
+            "description": "@font-face rule must define 'src' and 'font-family' properties",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.hexColorLength",
+            "description": "Hex colors must consist of three or six hex numbers",
+            "default": "error",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.idSelector",
+            "description": "Selectors should not contain IDs because these rules are too tightly coupled with the HTML.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.ieHack",
+            "description": "IE hacks are only necessary when supporting IE7 and older",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.important",
+            "description": "Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.importStatement",
+            "description": "Import statements do not load in parallel",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.propertyIgnoredDueToDisplay",
+            "description": "Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.universalSelector",
+            "description": "The universal selector (*) is known to be slow",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.unknownProperties",
+            "description": "Unknown property.",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.unknownVendorSpecificProperties",
+            "description": "Unknown vendor specific property.",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.vendorPrefix",
+            "description": "When using a vendor-specific prefix also include the standard property",
+            "default": "warning",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.lint.zeroUnits",
+            "description": "No unit for zero needed",
+            "default": "ignore",
+            "type": "string",
+            "enum": [
+                "ignore",
+                "warning",
+                "error"
+            ]
+        },
+        {
+            "name": "scss.validate",
+            "description": "Enables or disables all validations",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "search.exclude",
+            "description": "Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.",
+            "default": {
+                "**/node_modules": true,
+                "**/bower_components": true
+            },
+            "type": "object"
+        },
+        {
+            "name": "search.followSymlinks",
+            "description": "Controls whether to follow symlinks while searching.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "search.globalFindClipboard",
+            "description": "Controls if the search view should read or modify the shared find clipboard on macOS",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "search.location",
+            "description": "Preview: controls if the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space. Next release search in panel will have improved horizontal layout and this will no longer be a preview.",
+            "default": "sidebar",
+            "enum": [
+                "sidebar",
+                "panel"
+            ]
+        },
+        {
+            "name": "search.quickOpen.includeSymbols",
+            "description": "Configure to include results from a global symbol search in the file results for Quick Open.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "search.smartCase",
+            "description": "Searches case-insensitively if the pattern is all lowercase, otherwise, searches case-sensitively",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "search.useIgnoreFiles",
+            "description": "Controls whether to use .gitignore and .ignore files when searching for files.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "search.useRipgrep",
+            "description": "Controls whether to use ripgrep in text and file search",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "telemetry.enableCrashReporter",
+            "description": "Enable crash reports to be sent to Microsoft.\nThis option requires restart to take effect.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "telemetry.enableTelemetry",
+            "description": "Enable usage data and errors to be sent to Microsoft.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.explorerKind",
+            "description": "Customizes what kind of terminal to launch.",
+            "default": "integrated",
+            "type": "string",
+            "enum": [
+                "integrated",
+                "external"
+            ]
+        },
+        {
+            "name": "terminal.external.linuxExec",
+            "description": "Customizes which terminal to run on Linux.",
+            "default": "xterm",
+            "type": "string"
+        },
+        {
+            "name": "terminal.external.osxExec",
+            "description": "Customizes which terminal application to run on OS X.",
+            "default": "Terminal.app",
+            "type": "string"
+        },
+        {
+            "name": "terminal.external.windowsExec",
+            "description": "Customizes which terminal to run on Windows.",
+            "default": "undefined\\System32\\cmd.exe",
+            "type": "string"
+        },
+        {
+            "name": "terminal.integrated.commandsToSkipShell",
+            "description": "A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.",
+            "default": [
+                "editor.action.toggleTabFocusMode",
+                "workbench.action.debug.continue",
+                "workbench.action.debug.pause",
+                "workbench.action.debug.restart",
+                "workbench.action.debug.run",
+                "workbench.action.debug.start",
+                "workbench.action.debug.stepInto",
+                "workbench.action.debug.stepOut",
+                "workbench.action.debug.stepOver",
+                "workbench.action.debug.stop",
+                "workbench.action.focusActiveEditorGroup",
+                "workbench.action.focusFirstEditorGroup",
+                "workbench.action.focusSecondEditorGroup",
+                "workbench.action.focusThirdEditorGroup",
+                "workbench.action.navigateDown",
+                "workbench.action.navigateLeft",
+                "workbench.action.navigateRight",
+                "workbench.action.navigateUp",
+                "workbench.action.openNextRecentlyUsedEditorInGroup",
+                "workbench.action.openPreviousRecentlyUsedEditorInGroup",
+                "workbench.action.quickOpen",
+                "workbench.action.quickOpenPreviousEditor",
+                "workbench.action.quickOpenView",
+                "workbench.action.showCommands",
+                "workbench.action.tasks.build",
+                "workbench.action.tasks.restartTask",
+                "workbench.action.tasks.runTask",
+                "workbench.action.tasks.showLog",
+                "workbench.action.tasks.showTasks",
+                "workbench.action.tasks.terminate",
+                "workbench.action.tasks.test",
+                "workbench.action.terminal.clear",
+                "workbench.action.terminal.copySelection",
+                "workbench.action.terminal.deleteWordLeft",
+                "workbench.action.terminal.deleteWordRight",
+                "workbench.action.terminal.findWidget.history.showNext",
+                "workbench.action.terminal.findWidget.history.showPrevious",
+                "workbench.action.terminal.focus",
+                "workbench.action.terminal.focusAtIndex1",
+                "workbench.action.terminal.focusAtIndex2",
+                "workbench.action.terminal.focusAtIndex3",
+                "workbench.action.terminal.focusAtIndex4",
+                "workbench.action.terminal.focusAtIndex5",
+                "workbench.action.terminal.focusAtIndex6",
+                "workbench.action.terminal.focusAtIndex7",
+                "workbench.action.terminal.focusAtIndex8",
+                "workbench.action.terminal.focusAtIndex9",
+                "workbench.action.terminal.focusFindWidget",
+                "workbench.action.terminal.focusNext",
+                "workbench.action.terminal.focusNextPane",
+                "workbench.action.terminal.focusPrevious",
+                "workbench.action.terminal.focusPreviousPane",
+                "workbench.action.terminal.hideFindWidget",
+                "workbench.action.terminal.kill",
+                "workbench.action.terminal.moveToLineEnd",
+                "workbench.action.terminal.moveToLineStart",
+                "workbench.action.terminal.new",
+                "workbench.action.terminal.newInActiveWorkspace",
+                "workbench.action.terminal.paste",
+                "workbench.action.terminal.resizePaneDown",
+                "workbench.action.terminal.resizePaneLeft",
+                "workbench.action.terminal.resizePaneRight",
+                "workbench.action.terminal.resizePaneUp",
+                "workbench.action.terminal.runActiveFile",
+                "workbench.action.terminal.runSelectedText",
+                "workbench.action.terminal.scrollDown",
+                "workbench.action.terminal.scrollDownPage",
+                "workbench.action.terminal.scrollToBottom",
+                "workbench.action.terminal.scrollToTop",
+                "workbench.action.terminal.scrollUp",
+                "workbench.action.terminal.scrollUpPage",
+                "workbench.action.terminal.selectAll",
+                "workbench.action.terminal.split",
+                "workbench.action.terminal.toggleTerminal",
+                "workbench.action.togglePanel"
+            ],
+            "type": "array"
+        },
+        {
+            "name": "terminal.integrated.confirmOnExit",
+            "description": "Whether to confirm on exit if there are active terminal sessions.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.copyOnSelection",
+            "description": "When set, text selected in the terminal will be copied to the clipboard.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.cursorBlinking",
+            "description": "Controls whether the terminal cursor blinks.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.cursorStyle",
+            "description": "Controls the style of terminal cursor.",
+            "default": "block",
+            "enum": [
+                "block",
+                "line",
+                "underline"
+            ]
+        },
+        {
+            "name": "terminal.integrated.cwd",
+            "description": "An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.",
+            "default": "",
+            "type": "string"
+        },
+        {
+            "name": "terminal.integrated.enableBell",
+            "description": "Whether the terminal bell is enabled or not.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.env.linux",
+            "description": "Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "terminal.integrated.env.osx",
+            "description": "Object with environment variables that will be added to the VS Code process to be used by the terminal on OS X",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "terminal.integrated.env.windows",
+            "description": "Object with environment variables that will be added to the VS Code process to be used by the terminal on Windows",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "terminal.integrated.experimentalRestore",
+            "description": "Whether to restore terminal sessions for the workspace automatically when launching VS Code. This is an experimental setting; it may be buggy and could change in the future.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.fontFamily",
+            "description": "Controls the font family of the terminal, this defaults to editor.fontFamily's value.",
+            "default": "",
+            "type": "string"
+        },
+        {
+            "name": "terminal.integrated.fontSize",
+            "description": "Controls the font size in pixels of the terminal.",
+            "default": 12,
+            "type": "number"
+        },
+        {
+            "name": "terminal.integrated.fontWeight",
+            "description": "The font weight to use within the terminal for non-bold text.",
+            "default": "normal",
+            "type": "string",
+            "enum": [
+                "normal",
+                "bold",
+                "100",
+                "200",
+                "300",
+                "400",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ]
+        },
+        {
+            "name": "terminal.integrated.fontWeightBold",
+            "description": "The font weight to use within the terminal for bold text.",
+            "default": "bold",
+            "type": "string",
+            "enum": [
+                "normal",
+                "bold",
+                "100",
+                "200",
+                "300",
+                "400",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ]
+        },
+        {
+            "name": "terminal.integrated.lineHeight",
+            "description": "Controls the line height of the terminal, this number is multiplied by the terminal font size to get the actual line-height in pixels.",
+            "default": 1,
+            "type": "number"
+        },
+        {
+            "name": "terminal.integrated.macOptionIsMeta",
+            "description": "Treat the option key as the meta key in the terminal on macOS.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.rightClickBehavior",
+            "description": "Controls how terminal reacts to right click, possibilities are 'default', 'copyPaste', and 'selectWord'. 'default' will show the context menu, 'copyPaste' will copy when there is a selection otherwise paste, 'selectWord' will select the word under the cursor and show the context menu.",
+            "default": "selectWord",
+            "type": "string",
+            "enum": [
+                "default",
+                "copyPaste",
+                "selectWord"
+            ]
+        },
+        {
+            "name": "terminal.integrated.scrollback",
+            "description": "Controls the maximum amount of lines the terminal keeps in its buffer.",
+            "default": 1000,
+            "type": "number"
+        },
+        {
+            "name": "terminal.integrated.setLocaleVariables",
+            "description": "Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "terminal.integrated.shell.linux",
+            "description": "The path of the shell that the terminal uses on Linux.",
+            "default": "/bin/bash",
+            "type": "string"
+        },
+        {
+            "name": "terminal.integrated.shell.osx",
+            "description": "The path of the shell that the terminal uses on OS X.",
+            "default": "/bin/bash",
+            "type": "string"
+        },
+        {
+            "name": "terminal.integrated.shell.windows",
+            "description": "The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu).",
+            "default": "cmd.exe",
+            "type": "string"
+        },
+        {
+            "name": "terminal.integrated.shellArgs.linux",
+            "description": "The command line arguments to use when on the Linux terminal.",
+            "default": [],
+            "type": "array"
+        },
+        {
+            "name": "terminal.integrated.shellArgs.osx",
+            "description": "The command line arguments to use when on the OS X terminal.",
+            "default": [
+                "-l"
+            ],
+            "type": "array"
+        },
+        {
+            "name": "terminal.integrated.shellArgs.windows",
+            "description": "The command line arguments to use when on the Windows terminal.",
+            "default": [],
+            "type": "array"
+        },
+        {
+            "name": "terminal.integrated.showExitAlert",
+            "description": "Show alert `The terminal process terminated with exit code` when exit code is non-zero.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.autoImportSuggestions.enabled",
+            "description": "Enable/disable auto import suggestions. Requires TypeScript >=2.6.1",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.check.npmIsInstalled",
+            "description": "Check if NPM is installed for Automatic Type Acquisition.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.disableAutomaticTypeAcquisition",
+            "description": "Disables automatic type acquisition. Requires TypeScript >= 2.0.6.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.experimental.syntaxFolding",
+            "description": "Enables/disables syntax aware folding markers.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.enable",
+            "description": "Enable/disable default TypeScript formatter.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterCommaDelimiter",
+            "description": "Defines space handling after a comma delimiter.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterConstructor",
+            "description": "Defines space handling after the constructor keyword. Requires TypeScript >= 2.3.0.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions",
+            "description": "Defines space handling after function keyword for anonymous functions.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements",
+            "description": "Defines space handling after keywords in a control flow statement.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces",
+            "description": "Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces",
+            "description": "Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets",
+            "description": "Defines space handling after opening and before closing non empty brackets.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis",
+            "description": "Defines space handling after opening and before closing non empty parenthesis.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces",
+            "description": "Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterSemicolonInForStatements",
+            "description": " Defines space handling after a semicolon in a for statement.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceAfterTypeAssertion",
+            "description": "Defines space handling after type assertions in TypeScript. Requires TypeScript >= 2.4.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceBeforeAndAfterBinaryOperators",
+            "description": "Defines space handling after a binary operator.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.insertSpaceBeforeFunctionParenthesis",
+            "description": "Defines space handling before function argument parentheses. Requires TypeScript >= 2.1.5.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.placeOpenBraceOnNewLineForControlBlocks",
+            "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.format.placeOpenBraceOnNewLineForFunctions",
+            "description": "Defines whether an open brace is put onto a new line for functions or not.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.implementationsCodeLens.enabled",
+            "description": "Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.locale",
+            "description": "Sets the locale used to report TypeScript errors. Requires TypeScript >= 2.6.0. Default of 'null' uses VS Code's locale for TypeScript errors.",
+            "default": null,
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                "de",
+                "es",
+                "en",
+                "fr",
+                "it",
+                "ja",
+                "ko",
+                "ru",
+                "zh-CN",
+                "zh-TW",
+                null
+            ]
+        },
+        {
+            "name": "typescript.npm",
+            "description": "Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.",
+            "default": null,
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "typescript.quickSuggestionsForPaths",
+            "description": "Enable/disable quick suggestions when typing out an import path.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.referencesCodeLens.enabled",
+            "description": "Enable/disable references CodeLens in TypeScript files. Requires TypeScript >= 2.0.6.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.reportStyleChecksAsWarnings",
+            "description": "Report style checks as warnings",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.tsc.autoDetect",
+            "description": "Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.",
+            "default": "on",
+            "type": "string",
+            "enum": [
+                "on",
+                "off",
+                "build",
+                "watch"
+            ]
+        },
+        {
+            "name": "typescript.tsdk",
+            "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use.",
+            "default": null,
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "typescript.tsserver.log",
+            "description": "Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "terse",
+                "normal",
+                "verbose"
+            ]
+        },
+        {
+            "name": "typescript.tsserver.trace",
+            "description": "Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "off",
+                "messages",
+                "verbose"
+            ]
+        },
+        {
+            "name": "typescript.useCodeSnippetsOnMethodSuggest",
+            "description": "Complete functions with their parameter signature.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "typescript.validate.enable",
+            "description": "Enable/disable TypeScript validation.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "update.channel",
+            "description": "Configure whether you receive automatic updates from an update channel. Requires a restart after change.",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "none",
+                "default"
+            ]
+        },
+        {
+            "name": "update.enableWindowsBackgroundUpdates",
+            "description": "Enables Windows background updates.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "window.autoDetectHighContrast",
+            "description": "If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "window.closeWhenEmpty",
+            "description": "Controls if closing the last editor should also close the window. This setting only applies for windows that do not show folders.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "window.enableMenuBarMnemonics",
+            "description": "If enabled, the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "window.menuBarVisibility",
+            "description": "Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. By default, the menu bar will be visible, unless the window is full screen.",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "default",
+                "visible",
+                "toggle",
+                "hidden"
+            ],
+            "enumDescriptions": [
+                "Menu is only hidden in full screen mode.",
+                "Menu is always visible even in full screen mode.",
+                "Menu is hidden but can be displayed via Alt key.",
+                "Menu is always hidden."
+            ]
+        },
+        {
+            "name": "window.nativeTabs",
+            "description": "Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "window.newWindowDimensions",
+            "description": "Controls the dimensions of opening a new window when at least one window is already opened. By default, a new window will open in the center of the screen with small dimensions. When set to 'inherit', the window will get the same dimensions as the last window that was active. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "default",
+                "inherit",
+                "maximized",
+                "fullscreen"
+            ],
+            "enumDescriptions": [
+                "Open new windows in the center of the screen.",
+                "Open new windows with same dimension as last active one.",
+                "Open new windows maximized.",
+                "Open new windows in full screen mode."
+            ]
+        },
+        {
+            "name": "window.openFilesInNewWindow",
+            "description": "Controls if files should open in a new window.\n- default: files will open in the window with the files' folder open or the last active window unless opened via the Dock or from Finder\n- on: files will open in a new window\n- off: files will open in the window with the files' folder open or the last active window\nNote that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "on",
+                "off",
+                "default"
+            ],
+            "enumDescriptions": [
+                "Files will open in a new window",
+                "Files will open in the window with the files' folder open or the last active window",
+                "Files will open in the window with the files' folder open or the last active window unless opened via the Dock or from Finder"
+            ]
+        },
+        {
+            "name": "window.openFoldersInNewWindow",
+            "description": "Controls if folders should open in a new window or replace the last active window.\n- default: folders will open in a new window unless a folder is picked from within the application (e.g. via the File menu)\n- on: folders will open in a new window\n- off: folders will replace the last active window\nNote that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "on",
+                "off",
+                "default"
+            ],
+            "enumDescriptions": [
+                "Folders will open in a new window",
+                "Folders will replace the last active window",
+                "Folders will open in a new window unless a folder is picked from within the application (e.g. via the File menu)"
+            ]
+        },
+        {
+            "name": "window.openWithoutArgumentsInNewWindow",
+            "description": "Controls if a new empty window should open when starting a second instance without arguments or if the last running instance should get focus.\n- on: open a new empty window\n- off: the last active running instance will get focus\nNote that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).",
+            "default": "off",
+            "type": "string",
+            "enum": [
+                "on",
+                "off"
+            ],
+            "enumDescriptions": [
+                "Open a new empty window",
+                "Focus the last active running instance"
+            ]
+        },
+        {
+            "name": "window.restoreFullscreen",
+            "description": "Controls if a window should restore to full screen mode if it was exited in full screen mode.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "window.restoreWindows",
+            "description": "Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.",
+            "default": "one",
+            "type": "string",
+            "enum": [
+                "all",
+                "folders",
+                "one",
+                "none"
+            ],
+            "enumDescriptions": [
+                "Reopen all windows.",
+                "Reopen all folders. Empty workspaces will not be restored.",
+                "Reopen the last active window.",
+                "Never reopen a window. Always start with an empty one."
+            ]
+        },
+        {
+            "name": "window.smoothScrollingWorkaround",
+            "description": "Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "window.title",
+            "description": "Controls the window title based on the active editor. Variables are substituted based on the context:\n${activeEditorShort}: the file name (e.g. myFile.txt)\n${activeEditorMedium}: the path of the file relative to the workspace folder (e.g. myFolder/myFile.txt)\n${activeEditorLong}: the full path of the file (e.g. /Users/Development/myProject/myFolder/myFile.txt)\n${folderName}: name of the workspace folder the file is contained in (e.g. myFolder)\n${folderPath}: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder)\n${rootName}: name of the workspace (e.g. myFolder or myWorkspace)\n${rootPath}: file path of the workspace (e.g. /Users/Development/myWorkspace)\n${appName}: e.g. VS Code\n${dirty}: a dirty indicator if the active editor is dirty\n${separator}: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text",
+            "default": "${activeEditorShort}${separator}${rootName}",
+            "type": "string"
+        },
+        {
+            "name": "window.titleBarStyle",
+            "description": "Adjust the appearance of the window title bar. Changes require a full restart to apply.",
+            "default": "custom",
+            "type": "string",
+            "enum": [
+                "native",
+                "custom"
+            ]
+        },
+        {
+            "name": "window.zoomLevel",
+            "description": "Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.",
+            "default": 0,
+            "type": "number"
+        },
+        {
+            "name": "workbench.activityBar.visible",
+            "description": "Controls the visibility of the activity bar in the workbench.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.colorCustomizations",
+            "description": "Overrides colors from the currently selected color theme.",
+            "default": {},
+            "type": "object"
+        },
+        {
+            "name": "workbench.colorTheme",
+            "description": "Specifies the color theme used in the workbench.",
+            "default": "Default Dark+",
+            "type": "string",
+            "enum": [
+                "Default Dark+",
+                "Abyss",
+                "Default Light+",
+                "Visual Studio Dark",
+                "Visual Studio Light",
+                "Default High Contrast",
+                "Kimbie Dark",
+                "Monokai",
+                "Monokai Dimmed",
+                "Quiet Light",
+                "Red",
+                "Solarized Dark",
+                "Solarized Light",
+                "Tomorrow Night Blue"
+            ],
+            "enumDescriptions": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        {
+            "name": "workbench.commandPalette.history",
+            "description": "Controls the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.",
+            "default": 50,
+            "type": "number"
+        },
+        {
+            "name": "workbench.commandPalette.preserveInput",
+            "description": "Controls if the last typed input to the command palette should be restored when opening it the next time.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.closeOnFileDelete",
+            "description": "Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.enablePreview",
+            "description": "Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.enablePreviewFromQuickOpen",
+            "description": "Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.labelFormat",
+            "description": "Controls the format of the label for an editor. Changing this setting can for example make it easier to understand the location of a file:\n- short:   'parent'\n- medium:  'workspace/src/parent'\n- long:    '/home/user/workspace/src/parent'\n- default: '.../parent', when another tab shares the same title, or the relative workspace path if tabs are disabled",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "default",
+                "short",
+                "medium",
+                "long"
+            ],
+            "enumDescriptions": [
+                "Show the name of the file. When tabs are enabled and two files have the same name in one group the distinguinshing sections of each file's path are added. When tabs are disabled, the path relative to the workspace folder is shown if the editor is active.",
+                "Show the name of the file followed by it's directory name.",
+                "Show the name of the file followed by it's path relative to the workspace folder.",
+                "Show the name of the file followed by it's absolute path."
+            ]
+        },
+        {
+            "name": "workbench.editor.openPositioning",
+            "description": "Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the currently active one. Select 'first' or 'last' to open editors independently from the currently active one.",
+            "default": "right",
+            "type": "string",
+            "enum": [
+                "left",
+                "right",
+                "first",
+                "last"
+            ]
+        },
+        {
+            "name": "workbench.editor.revealIfOpen",
+            "description": "Controls if an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.showIcons",
+            "description": "Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.showTabs",
+            "description": "Controls if opened editors should show in tabs or not.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.swipeToNavigate",
+            "description": "Navigate between open files using three-finger swipe horizontally.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.editor.tabCloseButton",
+            "description": "Controls the position of the editor's tabs close buttons or disables them when set to 'off'.",
+            "default": "right",
+            "type": "string",
+            "enum": [
+                "left",
+                "right",
+                "off"
+            ]
+        },
+        {
+            "name": "workbench.editor.tabSizing",
+            "description": "Controls the sizing of editor tabs. Set to 'fit' to keep tabs always large enough to show the full editor label. Set to 'shrink' to allow tabs to get smaller when the available space is not enough to show all tabs at once.",
+            "default": "fit",
+            "type": "string",
+            "enum": [
+                "fit",
+                "shrink"
+            ]
+        },
+        {
+            "name": "workbench.fontAliasing",
+            "description": "Controls font aliasing method in the workbench.\n- default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text\n- antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall\n- none: Disables font smoothing. Text will show with jagged sharp edges\n- auto: Applies `default` or `antialiased` automatically based on the DPI of displays.",
+            "default": "default",
+            "type": "string",
+            "enum": [
+                "default",
+                "antialiased",
+                "none",
+                "auto"
+            ],
+            "enumDescriptions": [
+                "Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text.",
+                "Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall.",
+                "Disables font smoothing. Text will show with jagged sharp edges.",
+                "Applies `default` or `antialiased` automatically based on the DPI of displays."
+            ]
+        },
+        {
+            "name": "workbench.iconTheme",
+            "description": "Specifies the icon theme used in the workbench or 'null' to not show any file icons.",
+            "default": "vs-seti",
+            "type": [
+                "string",
+                "null"
+            ],
+            "enum": [
+                null,
+                "vs-minimal",
+                "vs-seti"
+            ],
+            "enumDescriptions": [
+                "No file icons",
+                "",
+                ""
+            ]
+        },
+        {
+            "name": "workbench.list.multiSelectModifier",
+            "description": "The modifier to be used to add an item in trees and lists to a multi-selection with the mouse (for example in the explorer, open editors and scm view). `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on macOS. The 'Open to Side' mouse gestures - if supported - will adapt such that they do not conflict with the multiselect modifier.",
+            "default": "ctrlCmd",
+            "type": "string",
+            "enum": [
+                "ctrlCmd",
+                "alt"
+            ],
+            "enumDescriptions": [
+                "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+                "Maps to `Alt` on Windows and Linux and to `Option` on macOS."
+            ]
+        },
+        {
+            "name": "workbench.list.openMode",
+            "description": "Controls how to open items in trees and lists using the mouse (if supported). Set to `singleClick` to open items with a single mouse click and `doubleClick` to only open via mouse double click. For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable. ",
+            "default": "singleClick",
+            "type": "string",
+            "enum": [
+                "singleClick",
+                "doubleClick"
+            ],
+            "enumDescriptions": [
+                "Opens items on mouse single click.",
+                "Open items on mouse double click."
+            ]
+        },
+        {
+            "name": "workbench.panel.defaultLocation",
+            "description": "Controls the default location of the panel. It can either show at the bottom or on the right of the workbench.",
+            "default": "bottom",
+            "type": "string",
+            "enum": [
+                "bottom",
+                "right"
+            ]
+        },
+        {
+            "name": "workbench.quickOpen.closeOnFocusLost",
+            "description": "Controls if Quick Open should close automatically once it loses focus.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.settings.enableNaturalLanguageSearch",
+            "description": "Controls whether to enable the natural language search mode for settings.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.settings.openDefaultSettings",
+            "description": "Controls if opening settings also opens an editor showing all default settings.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.sideBar.location",
+            "description": "Controls the location of the sidebar. It can either show on the left or right of the workbench.",
+            "default": "left",
+            "type": "string",
+            "enum": [
+                "left",
+                "right"
+            ]
+        },
+        {
+            "name": "workbench.startupEditor",
+            "description": "Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).",
+            "default": "welcomePage",
+            "type": "string",
+            "enum": [
+                "none",
+                "welcomePage",
+                "newUntitledFile"
+            ],
+            "enumDescriptions": [
+                "Start without an editor.",
+                "Open the Welcome page (default).",
+                "Open a new untitled file."
+            ]
+        },
+        {
+            "name": "workbench.statusBar.feedback.visible",
+            "description": "Controls the visibility of the Twitter feedback (smiley) in the status bar at the bottom of the workbench.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.statusBar.visible",
+            "description": "Controls the visibility of the status bar at the bottom of the workbench.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.tips.enabled",
+            "description": "When enabled, will show the watermark tips when no editor is open.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.tree.horizontalScrolling",
+            "description": "Controls whether trees support horizontal scrolling in the workbench.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "workbench.view.alwaysShowHeaderActions",
+            "description": "Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "zenMode.centerLayout",
+            "description": "Controls if turning on Zen Mode also centers the layout.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "zenMode.fullScreen",
+            "description": "Controls if turning on Zen Mode also puts the workbench into full screen mode.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "zenMode.hideActivityBar",
+            "description": "Controls if turning on Zen Mode also hides the activity bar at the left of the workbench.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "zenMode.hideStatusBar",
+            "description": "Controls if turning on Zen Mode also hides the status bar at the bottom of the workbench.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "zenMode.hideTabs",
+            "description": "Controls if turning on Zen Mode also hides workbench tabs.",
+            "default": true,
+            "type": "boolean"
+        },
+        {
+            "name": "zenMode.restore",
+            "description": "Controls if a window should restore to zen mode if it was exited in zen mode.",
+            "default": false,
+            "type": "boolean"
+        }
+    ],
+    "buildTime": 1521616043969,
+    "commit": "5cc9bf1f7dffe52d79aaf4102cad8277dd9384a5",
+    "buildNumber": 122000958
+}

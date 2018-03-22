@@ -1,0 +1,16 @@
+.settingItem {
+    padding: 20px 0px;
+}
+
+.settingItem .settingLabel {
+    font-size: 18px;
+}
+
+.settingItem .settingDescription {
+    font-style: italic;
+    color: #999999;
+}
+
+.settingValueEditor {
+    float: right;
+}

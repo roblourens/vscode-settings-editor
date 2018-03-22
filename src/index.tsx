@@ -1,11 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import Editor from './components/Editor';
 import './index.css';
+import registerServiceWorker from './registerServiceWorker';
+
+const configuration = require('./configuration.json').settings;
 
 ReactDOM.render(
-  <App />,
+  <Editor configuration={configuration} />,
   document.getElementById('root') as HTMLElement
 );
+
 registerServiceWorker();
