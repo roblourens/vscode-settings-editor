@@ -35,11 +35,11 @@ const styles = (theme: any) => ({
     root: {
         width: '100%',
         maxWidth: 800,
-        margin: '0 auto',
+        margin: '80px auto 0',
         backgroundColor: theme.palette.background.default,
         position: 'relative',
         overflow: 'auto',
-        padding: '0px 5px'
+        padding: '5px'
     },
     listSection: {
         marginBottom: 40
