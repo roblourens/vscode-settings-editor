@@ -50,7 +50,7 @@ const styles = (theme: any) => ({
     ul: {
         backgroundColor: 'inherit',
         padding: 0,
-        boxShadow: '0px 2px 9px grey'
+        boxShadow: '0px 0px 8px grey'
     },
 });
 
