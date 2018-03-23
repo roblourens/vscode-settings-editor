@@ -4,10 +4,10 @@ import Editor from './components/Editor';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-const configuration = require('./configuration.json').settings;
+const configuration = require('./configuration_full.json').settings;
 
 ReactDOM.render(
-  <Editor configuration={configuration} />,
+  <Editor settings={configuration} />,
   document.getElementById('root') as HTMLElement
 );
 
