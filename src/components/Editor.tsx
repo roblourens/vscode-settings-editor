@@ -36,16 +36,21 @@ const styles = (theme: any) => ({
         width: '100%',
         maxWidth: 800,
         margin: '0 auto',
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.background.default,
         position: 'relative',
         overflow: 'auto',
+        padding: '0px 5px'
     },
     listSection: {
-        backgroundColor: 'inherit',
+        marginBottom: 40
+    },
+    listSubheader: {
+        backgroundColor: 'white'
     },
     ul: {
         backgroundColor: 'inherit',
         padding: 0,
+        boxShadow: '0px 2px 9px grey'
     },
 });
 
@@ -59,7 +64,7 @@ function Editor(props: Props) {
             {config.map(group => (
                 <li key={`section-${group.name}`} className={classes.listSection}>
                     <ul className={classes.ul}>
-                        <ListSubheader>{uppercaseFirstLetter(group.name)}</ListSubheader>
+                        <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
                         {group.settings.map(s => (
                             <SettingItem group={group} setting={s} key={`item-${group.name}-${s.name}`} />
                         ))}

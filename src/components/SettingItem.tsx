@@ -16,8 +16,25 @@ export interface ItemProps {
 }
 
 const styles = (theme: any) => ({
+    'listItem': {
+        backgroundColor: 'white'
+    },
+    'listItem:hover': {
+        backgroundColor: 'initial !important'
+    },
     listItemText: {
         maxWidth: 600
+    },
+    settingValueEditor: {
+        marginRight: 10
+    },
+
+    textFieldInput: {
+        textAlign: 'right'
+    },
+    numberFieldInput: {
+        textAlign: 'right',
+        width: 50
     }
 });
 
@@ -26,7 +43,7 @@ function SettingItem(props: ItemProps) {
     const name = setting.name.replace(/^Commonly Used\./, '');
 
     return (
-        <ListItem button={true} >
+        <ListItem button={true} className={classes.listItem} >
             <ListItemText primary={name} secondary={setting.description} className={classes.listItemText} />
             <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(setting, classes)}</ListItemSecondaryAction>
         </ListItem>
@@ -47,14 +64,16 @@ function BoolSettingValue(props: ValueProps) {
 }
 
 function StringSettingValue(props: ValueProps) {
+    const inputProps = { className: props.classes.textFieldInput };
     return (
-        <TextField defaultValue={props.setting.default} />
+        <TextField defaultValue={props.setting.default} inputProps={inputProps} />
     );
 }
 
 function NumberSettingValue(props: ValueProps) {
+    const inputProps = { className: props.classes.numberFieldInput };
     return (
-        <TextField defaultValue={String(props.setting.default)} />
+        <TextField defaultValue={String(props.setting.default)} inputProps={inputProps} />
     );
 }
 
