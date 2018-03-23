@@ -3,7 +3,7 @@ import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import { withStyles } from 'material-ui/styles';
 
-import { SettingItem } from './SettingItem';
+import SettingItem from './SettingItem';
 
 export enum SettingType {
     string,
@@ -34,7 +34,7 @@ export interface Props {
 const styles = (theme: any) => ({
     root: {
         width: '100%',
-        maxWidth: 600,
+        maxWidth: 800,
         margin: '0 auto',
         backgroundColor: theme.palette.background.paper,
         position: 'relative',
@@ -59,11 +59,9 @@ function Editor(props: Props) {
             {config.map(group => (
                 <li key={`section-${group.name}`} className={classes.listSection}>
                     <ul className={classes.ul}>
-                        <ListSubheader disableSticky={true}>{group.name}</ListSubheader>
+                        <ListSubheader>{uppercaseFirstLetter(group.name)}</ListSubheader>
                         {group.settings.map(s => (
-                            <ListItem key={`item-${group.name}-${s.name}`}>
-                                <ListItemText primary={s.name} secondary={s.description} />
-                            </ListItem>
+                            <SettingItem group={group} setting={s} key={`item-${group.name}-${s.name}`} />
                         ))}
                     </ul>
                 </li>
@@ -97,4 +95,13 @@ function parseSettings(settings: Setting[]): SettingsGroup[] {
         });
 
     return result;
+}
+
+function removeGroupWithName(groups: SettingsGroup[], name: string): SettingsGroup {
+    const idx = groups.findIndex(g => g.name === name);
+    return groups.splice(idx, 1)[0];
+}
+
+function uppercaseFirstLetter(str: string): string {
+    return str.charAt(0).toUpperCase() + str.substr(1);
 }
