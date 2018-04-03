@@ -94,12 +94,23 @@ const SearchableSettings = decorate(class extends React.Component<Props & WithSt
     }
 
     private getFilteredSettings(query: string): Setting[] {
+        const queryWords = words(query);
         return this.props.settings.filter(s => {
-            return s.name.indexOf(query) >= 0 || s.description.indexOf(query) >= 0;
+            return match(s.name, queryWords) || match(s.description, queryWords);
         });
     }
 });
 export default SearchableSettings as any;
+
+function words(str: string) {
+    return str.toLowerCase()
+        .split(' ');
+}
+
+function match(str: string, queryWords: string[]) {
+    str = str.toLowerCase();
+    return queryWords.every(w => str.indexOf(w) >= 0);
+}
 
 function Editor(props: Props) {
     const { classes, settings } = props;
