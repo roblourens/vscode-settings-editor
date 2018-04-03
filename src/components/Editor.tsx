@@ -1,9 +1,10 @@
 import * as React from 'react';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemText } from 'material-ui/List';
-import { withStyles } from 'material-ui/styles';
+import { withStyles, WithStyles } from 'material-ui/styles';
 
 import SettingItem from './SettingItem';
+import { TextField } from 'material-ui';
 
 export enum SettingType {
     string,
@@ -31,15 +32,22 @@ export interface Props {
     classes?: any;
 }
 
-const styles = (theme: any) => ({
+export interface SearchableSettingsState {
+    filteredSettings: Setting[];
+}
+
+const decorate = withStyles(theme => ({
     root: {
         width: '100%',
         maxWidth: 800,
         margin: '80px auto 0',
         backgroundColor: theme.palette.background.default,
-        position: 'relative',
-        overflow: 'auto',
+        position: 'relative' as 'relative', // I hate TS
+        overflow: 'auto' as 'auto',
         padding: '5px'
+    },
+    searchInput: {
+        marginBottom: '20px'
     },
     listSection: {
         marginBottom: 40
@@ -52,7 +60,46 @@ const styles = (theme: any) => ({
         padding: 0,
         boxShadow: '0px 0px 8px grey'
     },
+}));
+
+const SearchableSettings = decorate(class extends React.Component<Props & WithStyles<'root'>, SearchableSettingsState> {
+    componentWillMount() {
+        if (!this.state) {
+            this.setState({
+                filteredSettings: this.props.settings
+            });
+        }
+    }
+
+    render() {
+        return (
+            <div className={this.props.classes.root}>
+                <TextField
+                    className={this.props.classes.searchInput}
+                    label="Search"
+                    onChange={this.handleChange()}
+                    fullWidth={true}
+                />
+                <Editor settings={this.state ? this.state.filteredSettings : this.props.settings} classes={this.props.classes} />
+            </div>
+        );
+    }
+
+    private handleChange() {
+        return event => {
+            this.setState({
+                filteredSettings: this.getFilteredSettings(event.target.value)
+            });
+        };
+    }
+
+    private getFilteredSettings(query: string): Setting[] {
+        return this.props.settings.filter(s => {
+            return s.name.indexOf(query) >= 0 || s.description.indexOf(query) >= 0;
+        });
+    }
 });
+export default SearchableSettings as any;
 
 function Editor(props: Props) {
     const { classes, settings } = props;
@@ -60,7 +107,7 @@ function Editor(props: Props) {
     const config = parseSettings(settings);
 
     return (
-        <List className={classes.root} subheader={<li />}>
+        <List subheader={<li />}>
             {config.map(group => (
                 <li key={`section-${group.name}`} className={classes.listSection}>
                     <ul className={classes.ul}>
@@ -74,8 +121,6 @@ function Editor(props: Props) {
         </List>
     );
 }
-
-export default withStyles(styles as any)(Editor);
 
 // helpers
 
