@@ -5,7 +5,7 @@ import Checkbox from 'material-ui/Checkbox';
 import Select from 'material-ui/Select';
 import { MenuItem } from 'material-ui/Menu';
 import List, { ListItem, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
-import { withStyles } from 'material-ui/styles';
+import { withStyles, WithStyles } from 'material-ui/styles';
 
 import { Setting, SettingType, SettingsGroup } from './Editor';
 
@@ -15,7 +15,7 @@ export interface ItemProps {
     classes?: any;
 }
 
-const styles = (theme: any) => ({
+const decorate = withStyles((theme: any) => ({
     'listItem': {
         backgroundColor: 'white'
     },
@@ -36,21 +36,23 @@ const styles = (theme: any) => ({
         textAlign: 'right',
         width: 50
     }
+}));
+
+const SettingItem = decorate(class extends React.PureComponent<ItemProps & WithStyles<'root'>> {
+    render() {
+        const { classes, setting } = this.props;
+        const name = setting.name.replace(/^Commonly Used\./, '');
+
+        return (
+            <ListItem button={true} className={classes.listItem} >
+                <ListItemText primary={`"${name}"`} secondary={setting.description} className={classes.listItemText} />
+                <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(setting, classes)}</ListItemSecondaryAction>
+            </ListItem>
+        );
+    }
 });
 
-function SettingItem(props: ItemProps) {
-    const { classes, setting } = props;
-    const name = setting.name.replace(/^Commonly Used\./, '');
-
-    return (
-        <ListItem button={true} className={classes.listItem} >
-            <ListItemText primary={`"${name}"`} secondary={setting.description} className={classes.listItemText} />
-            <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(setting, classes)}</ListItemSecondaryAction>
-        </ListItem>
-    );
-}
-
-export default withStyles(styles as any)(SettingItem);
+export default SettingItem as any;
 
 interface ValueProps {
     setting: Setting;
@@ -61,7 +63,7 @@ interface ValueState {
     value: any;
 }
 
-class SettingValue extends React.Component<ValueProps, ValueState> {
+class SettingValue extends React.PureComponent<ValueProps, ValueState> {
     protected handleChange() {
         return event => {
             this.setState({ 'value': event.target.value });
