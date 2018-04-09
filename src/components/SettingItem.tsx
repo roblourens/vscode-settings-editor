@@ -12,33 +12,16 @@ import { Setting, SettingType, SettingsGroup } from './Editor';
 export interface ItemProps {
     group: SettingsGroup;
     setting: Setting;
+    value: any;
+    onChange: (value: any) => void;
     classes?: any;
 }
 
-const decorate = withStyles((theme: any) => ({
-    'listItem': {
-        backgroundColor: 'white'
-    },
-    'listItem:hover': {
-        backgroundColor: 'initial !important'
-    },
-    listItemText: {
-        maxWidth: 600
-    },
-    settingValueEditor: {
-        marginRight: 10
-    },
+// const decorate = withStyles((theme: any) => ({
 
-    textFieldInput: {
-        textAlign: 'right'
-    },
-    numberFieldInput: {
-        textAlign: 'right',
-        width: 50
-    }
-}));
+// }));
 
-const SettingItem = decorate(class extends React.PureComponent<ItemProps & WithStyles<'root'>> {
+const SettingItem = class extends React.PureComponent<ItemProps & WithStyles<'root'>> {
     render() {
         const { classes, setting } = this.props;
         const name = setting.name.replace(/^Commonly Used\./, '');
@@ -46,37 +29,31 @@ const SettingItem = decorate(class extends React.PureComponent<ItemProps & WithS
         return (
             <ListItem button={true} className={classes.listItem} >
                 <ListItemText primary={`"${name}"`} secondary={setting.description} className={classes.listItemText} />
-                <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(setting, classes)}</ListItemSecondaryAction>
+                <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(this.props)}</ListItemSecondaryAction>
             </ListItem>
         );
     }
-});
+};
 
 export default SettingItem as any;
 
 interface ValueProps {
     setting: Setting;
     classes: any;
-}
-
-interface ValueState {
     value: any;
+    onChange: (value: any) => void;
 }
 
-class SettingValue extends React.PureComponent<ValueProps, ValueState> {
+class SettingValue extends React.PureComponent<ValueProps> {
     protected handleChange() {
         return event => {
-            this.setState({ 'value': event.target.value });
+            this.props.onChange(event.target.value);
         };
     }
 
     protected getHelperText() {
-        if (!this.state) {
-            return '';
-        }
-
         const { setting } = this.props;
-        return (!this.state || setting.default + '' === this.state.value) ?
+        return (setting.default === this.props.value) ?
             '' :
             'Modified';
     }
@@ -100,7 +77,7 @@ class StringSettingValue extends SettingValue {
         const inputProps = { className: classes.textFieldInput };
         return (
             <TextField
-                error={this.state && this.state.value !== setting.default}
+                error={this.props.value !== setting.default}
                 defaultValue={setting.default}
                 inputProps={inputProps}
                 onChange={this.handleChange()}
@@ -117,7 +94,7 @@ class NumberSettingValue extends SettingValue {
         return (
             <TextField
                 type="number"
-                error={this.state && this.state.value !== setting.default}
+                error={this.props.value !== setting.default}
                 defaultValue={String(setting.default)}
                 inputProps={inputProps}
                 onChange={this.handleChange()}
@@ -145,9 +122,9 @@ class EnumSettingValue extends SettingValue {
         const { setting, classes } = this.props;
         return (
             <TextField
-                error={this.state && this.state.value !== setting.default}
+                error={this.props.value !== setting.default}
                 select={true}
-                value={this.state && this.state.value || setting.default}
+                value={this.props.value}
                 onChange={this.handleChange()}
                 helperText={this.getHelperText()}
             >
@@ -157,13 +134,14 @@ class EnumSettingValue extends SettingValue {
     }
 }
 
-function renderSettingValue(setting: Setting, classes: any) {
+function renderSettingValue(itemProps: ItemProps) {
+    const { setting, value, onChange, classes } = itemProps;
     return (
-        setting.type === SettingType[SettingType.boolean] ? <BoolSettingValue setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.string] ? <StringSettingValue setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.number] ? <NumberSettingValue setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.object] ? <ObjectSettingValue setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.boolean] ? <BoolSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.string] ? <StringSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.number] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.object] ? <ObjectSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         null
     );
 }

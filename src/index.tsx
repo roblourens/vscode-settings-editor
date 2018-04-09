@@ -6,7 +6,6 @@ import CssBaseline from 'material-ui/CssBaseline';
 
 import registerServiceWorker from './registerServiceWorker';
 import store, { history } from './store';
-import App from './components/app';
 
 import SearchableSettings from './components/Editor';
 import Header from './components/Header';

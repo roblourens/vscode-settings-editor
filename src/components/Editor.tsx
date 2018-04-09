@@ -4,6 +4,7 @@ import List, { ListItem, ListItemText } from 'material-ui/List';
 import { withStyles, WithStyles } from 'material-ui/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { changeSetting } from './../modules/settings'
 
 import SettingItem from './SettingItem';
 import { TextField } from 'material-ui';
@@ -31,7 +32,9 @@ export interface SettingsGroup {
 
 export interface Props {
     settings: Setting[];
+    settingOverrides: any;
     classes?: any;
+    onChangeSetting?: typeof changeSetting;
 }
 
 export interface SearchableSettingsState {
@@ -62,6 +65,27 @@ const decorate = withStyles(theme => ({
         padding: 0,
         boxShadow: '0px 0px 8px grey'
     },
+
+    'listItem': {
+        backgroundColor: 'white'
+    },
+    'listItem:hover': {
+        backgroundColor: 'initial !important'
+    },
+    listItemText: {
+        maxWidth: 600
+    },
+    settingValueEditor: {
+        marginRight: 10
+    },
+
+    textFieldInput: {
+        textAlign: 'right'
+    },
+    numberFieldInput: {
+        textAlign: 'right',
+        width: 50
+    }
 }));
 
 const SearchableSettings = decorate(class extends React.PureComponent<Props & WithStyles<'root'>, SearchableSettingsState> {
@@ -82,7 +106,12 @@ const SearchableSettings = decorate(class extends React.PureComponent<Props & Wi
                     onChange={this.handleChange()}
                     fullWidth={true}
                 />
-                <Editor settings={this.state ? this.state.filteredSettings : this.props.settings} classes={this.props.classes} />
+                <Editor
+                    settings={this.state ? this.state.filteredSettings : this.props.settings}
+                    classes={this.props.classes}
+                    settingOverrides={this.props.settingOverrides}
+                    onChangeSetting={this.props.onChangeSetting}
+                />
             </div>
         );
     }
@@ -104,10 +133,12 @@ const SearchableSettings = decorate(class extends React.PureComponent<Props & Wi
 });
 
 const mapStateToProps = state => ({
-    settings: state.settings.settings
+    settings: state.settings.settings,
+    settingOverrides: state.settings.settingOverrides
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+    onChangeSetting: changeSetting
 }, dispatch);
 
 export default connect(
@@ -130,15 +161,20 @@ function Editor(props: Props) {
 
     const config = parseSettings(settings);
 
+    const onItemChange = (settingKey: string, value: any) => {
+        props.onChangeSetting!(settingKey, value);
+    };
+
     return (
         <List subheader={<li />}>
             {config.map(group => (
                 <li key={`section-${group.name}`} className={classes.listSection}>
                     <ul className={classes.ul}>
                         <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
-                        {group.settings.map(s => (
-                            <SettingItem group={group} setting={s} key={`item-${group.name}-${s.name}`} />
-                        ))}
+                        {group.settings.map(s => {
+                            const value = props.settingOverrides[s.name] || s.default;
+                            return (<SettingItem classes={classes} group={group} setting={s} key={`item-${group.name}-${s.name}`} onChange={v => onItemChange(s.name, v)} value={value} />);
+                        })}
                     </ul>
                 </li>
             ))}
