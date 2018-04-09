@@ -1,13 +1,11 @@
 import * as React from 'react';
-import ListSubheader from 'material-ui/List/ListSubheader';
-import List, { ListItem, ListItemText } from 'material-ui/List';
 import { withStyles, WithStyles } from 'material-ui/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { changeSetting } from './../modules/settings'
-
-import SettingItem from './SettingItem';
 import { TextField } from 'material-ui';
+
+import { changeSetting } from './../modules/settings'
+import { SettingList } from './SettingList';
 
 export enum SettingType {
     string,
@@ -30,7 +28,7 @@ export interface SettingsGroup {
     settings: Setting[];
 }
 
-export interface Props {
+export interface EditorProps {
     settings: Setting[];
     settingOverrides: any;
     classes?: any;
@@ -88,7 +86,7 @@ const decorate = withStyles(theme => ({
     }
 }));
 
-const SearchableSettings = decorate(class extends React.PureComponent<Props & WithStyles<'root'>, SearchableSettingsState> {
+const SearchableSettings = decorate(class extends React.PureComponent<EditorProps & WithStyles<'root'>, SearchableSettingsState> {
     componentWillMount() {
         if (!this.state) {
             this.setState({
@@ -106,7 +104,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<Props & Wi
                     onChange={this.handleChange()}
                     fullWidth={true}
                 />
-                <Editor
+                <SettingList
                     settings={this.state ? this.state.filteredSettings : this.props.settings}
                     classes={this.props.classes}
                     settingOverrides={this.props.settingOverrides}
@@ -154,64 +152,4 @@ function words(str: string) {
 function match(str: string, queryWords: string[]) {
     str = str.toLowerCase();
     return queryWords.every(w => str.indexOf(w) >= 0);
-}
-
-function Editor(props: Props) {
-    const { classes, settings } = props;
-
-    const config = parseSettings(settings);
-
-    const onItemChange = (settingKey: string, value: any) => {
-        props.onChangeSetting!(settingKey, value);
-    };
-
-    return (
-        <List subheader={<li />}>
-            {config.map(group => (
-                <li key={`section-${group.name}`} className={classes.listSection}>
-                    <ul className={classes.ul}>
-                        <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
-                        {group.settings.map(s => {
-                            const value = props.settingOverrides[s.name] || s.default;
-                            return (<SettingItem classes={classes} group={group} setting={s} key={`item-${group.name}-${s.name}`} onChange={v => onItemChange(s.name, v)} value={value} />);
-                        })}
-                    </ul>
-                </li>
-            ))}
-        </List>
-    );
-}
-
-// helpers
-
-function parseSettings(settings: Setting[]): SettingsGroup[] {
-    const result: SettingsGroup[] = [];
-
-    let currentGroup: SettingsGroup;
-    settings
-        .filter(s => !s.name.startsWith('['))
-        .forEach(s => {
-            const settingGroupName = s.name.split('.')[0];
-            if (!currentGroup || currentGroup.name !== settingGroupName) {
-                currentGroup = {
-                    name: settingGroupName,
-                    settings: []
-                };
-
-                result.push(currentGroup);
-            }
-
-            currentGroup.settings.push(s);
-        });
-
-    return result;
-}
-
-function removeGroupWithName(groups: SettingsGroup[], name: string): SettingsGroup {
-    const idx = groups.findIndex(g => g.name === name);
-    return groups.splice(idx, 1)[0];
-}
-
-function uppercaseFirstLetter(str: string): string {
-    return str.charAt(0).toUpperCase() + str.substr(1);
 }

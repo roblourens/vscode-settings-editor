@@ -1,6 +1,6 @@
 export const CHANGE_SETTING = 'settings/CHANGESETTING'
 
-const configuration = require('../configuration_full.json').settings;
+const configuration = require('../configuration.json').settings;
 const initialState = {
     settings: configuration,
     settingOverrides: {}
