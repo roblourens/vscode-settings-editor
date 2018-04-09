@@ -1,20 +1,27 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 import CssBaseline from 'material-ui/CssBaseline';
+
 import registerServiceWorker from './registerServiceWorker';
+import store, { history } from './store';
+import App from './components/app';
 
 import SearchableSettings from './components/Editor';
 import Header from './components/Header';
 
-const configuration = require('./configuration_full.json').settings;
+const target = document.querySelector('#root');
 
-ReactDOM.render(
-  <div>
-    <CssBaseline />
-    <Header />
-    <SearchableSettings settings={configuration} />
-  </div>,
-  document.getElementById('root') as HTMLElement
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        <CssBaseline />
+        <Header />
+        <SearchableSettings />
+      </div>
+    </ConnectedRouter>
+  </Provider>,
+  target
 );
-
-registerServiceWorker();

@@ -24,7 +24,7 @@ const styles = theme => ({
     }
 });
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
     state = {
         value: 0,
     };

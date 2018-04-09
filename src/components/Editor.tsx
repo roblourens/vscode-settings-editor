@@ -2,6 +2,8 @@ import * as React from 'react';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import { withStyles, WithStyles } from 'material-ui/styles';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import SettingItem from './SettingItem';
 import { TextField } from 'material-ui';
@@ -62,7 +64,7 @@ const decorate = withStyles(theme => ({
     },
 }));
 
-const SearchableSettings = decorate(class extends React.Component<Props & WithStyles<'root'>, SearchableSettingsState> {
+const SearchableSettings = decorate(class extends React.PureComponent<Props & WithStyles<'root'>, SearchableSettingsState> {
     componentWillMount() {
         if (!this.state) {
             this.setState({
@@ -100,7 +102,18 @@ const SearchableSettings = decorate(class extends React.Component<Props & WithSt
         });
     }
 });
-export default SearchableSettings as any;
+
+const mapStateToProps = state => ({
+    settings: state.settings.settings
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+}, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SearchableSettings as any);
 
 function words(str: string) {
     return str.toLowerCase()
