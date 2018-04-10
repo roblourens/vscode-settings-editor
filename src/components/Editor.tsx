@@ -53,11 +53,6 @@ const decorate = withStyles(theme => ({
     listSubheader: {
         backgroundColor: 'white'
     },
-    ul: {
-        backgroundColor: 'inherit',
-        padding: 0,
-        boxShadow: '0px 0px 8px grey'
-    },
 
     // Moved these out to the top level for perf reasons. Not sure what the proper usage is.
     'listItem': {

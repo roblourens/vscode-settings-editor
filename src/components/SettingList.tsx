@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemText } from 'material-ui/List';
+import { Paper } from 'material-ui';
 
 import SettingItem from './SettingItem';
 import { EditorProps, SettingsGroup } from './Editor';
@@ -19,13 +20,13 @@ export function SettingList(props: EditorProps) {
         <List subheader={<li />}>
             {config.map(group => (
                 <li key={`section-${group.name}`} className={classes.listSection}>
-                    <ul className={classes.ul}>
+                    <Paper className={classes.paper}>
                         <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
                         {group.settings.map(s => {
                             const value = props.settingOverrides[s.name] || s.default;
                             return (<SettingItem classes={classes} group={group} setting={s} key={`item-${group.name}-${s.name}`} onChange={v => onItemChange(s.name, v)} value={value} />);
                         })}
-                    </ul>
+                    </Paper>
                 </li>
             ))}
         </List>
