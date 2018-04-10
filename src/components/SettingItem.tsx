@@ -7,7 +7,8 @@ import { MenuItem } from 'material-ui/Menu';
 import List, { ListItem, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import { withStyles, WithStyles } from 'material-ui/styles';
 
-import { Setting, SettingType, SettingsGroup } from './Editor';
+import { SettingType, SettingsGroup } from './Editor';
+import { Setting } from '../modules/settings';
 
 export interface ItemProps {
     group: SettingsGroup;
@@ -117,6 +118,19 @@ class ObjectSettingValue extends SettingValue {
     }
 }
 
+class ArraySettingValue extends SettingValue {
+    render() {
+        const { setting, classes } = this.props;
+        return (
+            <TextField
+                disabled={true}
+                value="Edit in settings.json!"
+                onChange={this.handleChange()}
+            />
+        );
+    }
+}
+
 class EnumSettingValue extends SettingValue {
     render() {
         const { setting, classes } = this.props;
@@ -142,6 +156,7 @@ function renderSettingValue(itemProps: ItemProps) {
         setting.type === SettingType[SettingType.string] ? <StringSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         setting.type === SettingType[SettingType.number] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         setting.type === SettingType[SettingType.object] ? <ObjectSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.array] ? <ArraySettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         null
     );
 }

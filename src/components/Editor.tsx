@@ -4,23 +4,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { TextField, Checkbox, FormControlLabel } from 'material-ui';
 
-import { changeSetting, DisplayProps, changeDisplayProp } from './../modules/settings'
+import { changeSetting, DisplayProps, changeDisplayProp, Setting } from './../modules/settings'
 import { SettingList } from './SettingList';
 
 export enum SettingType {
     string,
     number,
     boolean,
-    object
-}
-
-export interface Setting {
-    name: string;
-    description: string;
-    type: string;
-    default?: any; // any
-    enum?: string[];
-    enumDescriptions?: string[];
+    object,
+    array
 }
 
 export interface SettingsGroup {
@@ -139,7 +131,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
     private getFilteredSettings(): Setting[] {
         let filteredSettings = this.props.settings;
 
-        if (!this.props.displayProps!.showAdvancedSettings) {
+        if (!this.props.displayProps!.showAdvancedSettings && !this.state.query) {
             filteredSettings = filteredSettings.filter(s => !!s.name.match(/^Commonly Used/));
         }
 

@@ -6,11 +6,20 @@ export interface DisplayProps {
     showOverriddenSettingsOnly: false
 }
 
+export interface Setting {
+    name: string;
+    description: string;
+    type: string;
+    default?: any; // any
+    enum?: string[];
+    enumDescriptions?: string[];
+}
+
 const configuration = require('../configuration_full.json').settings;
 const initialState = {
-    settings: configuration,
+    settings: configuration as Setting[],
     settingOverrides: {},
-    displayProps: <DisplayProps>{
+    displayProps: <DisplayProps> {
         showAdvancedSettings: false,
         showOverriddenSettingsOnly: false
     }

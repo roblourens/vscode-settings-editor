@@ -3,7 +3,8 @@ import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 
 import SettingItem from './SettingItem';
-import { EditorProps, Setting, SettingsGroup } from './Editor';
+import { EditorProps, SettingsGroup } from './Editor';
+import { Setting } from '../modules/settings';
 
 export function SettingList(props: EditorProps) {
     const { classes, settings } = props;
