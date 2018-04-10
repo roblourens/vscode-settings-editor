@@ -14,6 +14,7 @@ export interface ItemProps {
     group: SettingsGroup;
     setting: Setting;
     value: any;
+    isOverridden: boolean;
     onChange: (value: any) => void;
     classes?: any;
 }
@@ -38,6 +39,7 @@ interface ValueProps {
     setting: Setting;
     classes: any;
     value: any;
+    isOverridden: boolean;
     onChange: (value: any) => void;
 }
 
@@ -50,9 +52,13 @@ class SettingValue extends React.PureComponent<ValueProps> {
 
     protected getHelperText() {
         const { setting } = this.props;
-        return (setting.default === this.props.value) ?
-            '' :
-            'Modified';
+        return this.props.isOverridden ? 'Overridden in another scope' :
+            (setting.default !== this.props.value) ? 'Modified' :
+            '';
+    }
+
+    protected getClassName(): string {
+        return this.props.isOverridden ? this.props.classes.overridden : '';
     }
 }
 
@@ -63,11 +69,16 @@ class BoolSettingValue extends SettingValue {
         };
     }
 
+    protected getClassName(): string {
+        const className = this.props.setting.default !== this.props.value ? this.props.classes.modifiedBool : '';
+        return className + super.getClassName();
+    }
+
     render() {
         const { setting, classes, value } = this.props;
         return (
             <Checkbox
-                className={setting.default !== value ? classes.modifiedBool : ''}
+                className={this.getClassName()}
                 defaultChecked={setting.default}
                 onChange={this.handleChange()}
             />
@@ -78,9 +89,10 @@ class BoolSettingValue extends SettingValue {
 class StringSettingValue extends SettingValue {
     render() {
         const { setting, classes } = this.props;
-        const inputProps = { className: classes.textFieldInput };
+        const inputProps = { className: classes.textFieldInput + ' ' + this.getClassName() };
         return (
             <TextField
+                className={this.getClassName()}
                 error={this.props.value !== setting.default}
                 defaultValue={setting.default}
                 inputProps={inputProps}
@@ -94,7 +106,7 @@ class StringSettingValue extends SettingValue {
 class NumberSettingValue extends SettingValue {
     render() {
         const { setting, classes } = this.props;
-        const inputProps = { className: classes.numberFieldInput };
+        const inputProps = { className: classes.numberFieldInput + ' ' + this.getClassName() };
         return (
             <TextField
                 type="number"
@@ -113,7 +125,7 @@ class ObjectSettingValue extends SettingValue {
         const { setting, classes } = this.props;
         return (
             <TextField
-                inputProps={({ className: classes.objectValue })}
+                inputProps={({ className: classes.objectValue + ' ' + this.getClassName() })}
                 disabled={true}
                 value="Edit in settings.json!"
                 onChange={this.handleChange()}
@@ -127,7 +139,7 @@ class ArraySettingValue extends SettingValue {
         const { setting, classes } = this.props;
         return (
             <TextField
-                inputProps={({ className: classes.arrayValue })}
+                inputProps={({ className: classes.arrayValue + ' ' + this.getClassName() })}
                 disabled={true}
                 value="Edit in settings.json!"
                 onChange={this.handleChange()}
@@ -141,6 +153,7 @@ class EnumSettingValue extends SettingValue {
         const { setting, classes } = this.props;
         return (
             <TextField
+                inputProps={{ className: this.getClassName() }}
                 error={this.props.value !== setting.default}
                 select={true}
                 value={this.props.value}
@@ -154,15 +167,15 @@ class EnumSettingValue extends SettingValue {
 }
 
 function renderSettingValue(itemProps: ItemProps) {
-    const { setting, value, onChange, classes } = itemProps;
+    const { setting, value, onChange, classes, isOverridden } = itemProps;
     return (
-        setting.type === SettingType[SettingType.boolean] ? <BoolSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.string] ? <StringSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.number] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.integer] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.object] ? <ObjectSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
-        setting.type === SettingType[SettingType.array] ? <ArraySettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.boolean] ? <BoolSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
+        setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
+        setting.type === SettingType[SettingType.string] ? <StringSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
+        setting.type === SettingType[SettingType.number] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
+        setting.type === SettingType[SettingType.integer] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
+        setting.type === SettingType[SettingType.object] ? <ObjectSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
+        setting.type === SettingType[SettingType.array] ? <ArraySettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
         null
     );
 }

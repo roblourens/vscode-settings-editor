@@ -24,7 +24,16 @@ export function SettingList(props: EditorProps) {
                         <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
                         {group.settings.map(s => {
                             const value = typeof props.settingOverrides[s.name] === 'undefined' ? s.default : props.settingOverrides[s.name];
-                            return (<SettingItem classes={classes} group={group} setting={s} key={`item-${group.name}-${s.name}`} onChange={v => onItemChange(s.name, v)} value={value} />);
+                            const isOverridden = props.upstreamSettingOverrides && typeof props.upstreamSettingOverrides[s.name] !== 'undefined';
+                            return (<SettingItem
+                                classes={classes}
+                                group={group}
+                                setting={s}
+                                key={`item-${group.name}-${s.name}`}
+                                onChange={v => onItemChange(s.name, v)}
+                                value={value}
+                                isOverridden={isOverridden}
+                            />);
                         })}
                     </Paper>
                 </li>

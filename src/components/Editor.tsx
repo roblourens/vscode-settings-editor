@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { TextField } from 'material-ui';
 
-import { changeSetting, DisplayProps, Setting } from './../modules/settings'
+import { changeSetting, DisplayProps, Setting, SettingsScope } from './../modules/settings'
 import { SettingList } from './SettingList';
 import EditorControls from './EditorControls';
 
@@ -25,6 +25,7 @@ export interface SettingsGroup {
 export interface EditorProps {
     settings: Setting[];
     settingOverrides: any;
+    upstreamSettingOverrides: any;
     classes?: any;
     onChangeSetting?: typeof changeSetting;
 
@@ -93,6 +94,10 @@ const decorate = withStyles(theme => ({
     },
     arrayValue: {
         textAlign: 'right'
+    },
+
+    overridden: {
+        color: 'gray'
     }
 }));
 
@@ -121,6 +126,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
                     settings={this.getFilteredSettings()}
                     classes={this.props.classes}
                     settingOverrides={this.props.settingOverrides}
+                    upstreamSettingOverrides={this.props.upstreamSettingOverrides}
                     onChangeSetting={this.props.onChangeSetting}
                 />
             </div>
@@ -161,6 +167,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
 const mapStateToProps = state => ({
     settings: state.settings.settings,
     settingOverrides: state.settings.settingOverrides[state.settings.currentScope],
+    upstreamSettingOverrides: state.settings.currentScope === SettingsScope.User ? state.settings.settingOverrides[SettingsScope.Workspace] : undefined,
     displayProps: state.settings.displayProps
 });
 
