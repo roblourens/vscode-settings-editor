@@ -1,9 +1,19 @@
 export const CHANGE_SETTING = 'settings/CHANGESETTING'
+export const CHANGE_DISPLAY_PROP = 'settings/CHANGE_DISPLAY_PROP'
 
-const configuration = require('../configuration.json').settings;
+export interface DisplayProps {
+    showAdvancedSettings: false,
+    showOverriddenSettingsOnly: false
+}
+
+const configuration = require('../configuration_full.json').settings;
 const initialState = {
     settings: configuration,
-    settingOverrides: {}
+    settingOverrides: {},
+    displayProps: <DisplayProps>{
+        showAdvancedSettings: false,
+        showOverriddenSettingsOnly: false
+    }
 }
 
 export default (state = initialState, action) => {
@@ -12,6 +22,14 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 settingOverrides: Object.assign({}, state.settingOverrides, { [action.settingKey]: action.settingValue })
+            }
+        case CHANGE_DISPLAY_PROP:
+            return {
+                ...state,
+                displayProps: {
+                    ...state.displayProps,
+                    [action.propId]: action.value
+                }
             }
 
         default:
@@ -25,6 +43,16 @@ export const changeSetting = (settingKey, settingValue) => {
             type: CHANGE_SETTING,
             settingKey,
             settingValue
+        })
+    }
+}
+
+export const changeDisplayProp = (propId: string, value: boolean) => {
+    return dispatch => {
+        dispatch({
+            type: CHANGE_DISPLAY_PROP,
+            propId,
+            value
         })
     }
 }
