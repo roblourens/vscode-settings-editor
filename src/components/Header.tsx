@@ -3,9 +3,12 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
-import { Toolbar } from 'material-ui';
+import { Toolbar, WithStyles } from 'material-ui';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { SettingsScope, changeCurrentScope } from '../modules/settings';
 
-const styles = theme => ({
+const decorate = withStyles(theme => ({
     root: {
         flexGrow: 1,
         marginTop: theme.spacing.unit * 3,
@@ -14,20 +17,25 @@ const styles = theme => ({
     flex: {
         flexGrow: 1
     }
-});
+}));
 
-class Header extends React.PureComponent {
+interface HeaderProps {
+    classes?: any;
+    currentScope: SettingsScope;
+    changeCurrentScope: typeof changeCurrentScope
+}
+
+const Header = decorate(class extends React.PureComponent<HeaderProps & WithStyles<'root'>> {
     state = {
         value: 0,
     };
 
     handleChange = (event, value) => {
-        this.setState({ value });
+        this.props.changeCurrentScope(value);
     }
 
     render() {
-        const { classes } = this.props as any;
-        const { value } = this.state;
+        const { classes, currentScope } = this.props;
 
         return (
             <div className={classes.root}>
@@ -36,15 +44,26 @@ class Header extends React.PureComponent {
                         <Typography variant="title" color="inherit" className={classes.flex}>
                             VS Code Settings
                         </Typography>
-                        <Tabs value={value} onChange={this.handleChange}>
-                            <Tab label="User Settings" />
-                            <Tab label="Workspace Settings" />
+                        <Tabs value={currentScope} onChange={this.handleChange}>
+                            <Tab label="User Settings" value={SettingsScope.User} />
+                            <Tab label="Workspace Settings" value={SettingsScope.Workspace} />
                         </Tabs>
                     </Toolbar>
                 </AppBar>
             </div>
         );
     }
-}
+});
 
-export default withStyles(styles)(Header as any);
+const mapStateToProps = state => ({
+    currentScope: state.settings.currentScope
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    changeCurrentScope
+}, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Header) as any;

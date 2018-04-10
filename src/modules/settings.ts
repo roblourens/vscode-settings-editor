@@ -1,5 +1,6 @@
 export const CHANGE_SETTING = 'settings/CHANGESETTING'
 export const CHANGE_DISPLAY_PROP = 'settings/CHANGE_DISPLAY_PROP'
+export const CHANGE_CURRENT_SCOPE = 'settings/CHANGE_CURRENT_SCOPE'
 
 export interface DisplayProps {
     showAdvancedSettings: false,
@@ -15,10 +16,19 @@ export interface Setting {
     enumDescriptions?: string[];
 }
 
+export enum SettingsScope {
+    User = 'user',
+    Workspace = 'workspace'
+}
+
 const configuration = require('../configuration_full.json').settings;
 const initialState = {
     settings: configuration as Setting[],
-    settingOverrides: {},
+    settingOverrides: {
+        [SettingsScope.Workspace]: {},
+        [SettingsScope.User]: {}
+    },
+    currentScope: SettingsScope.User,
     displayProps: <DisplayProps> {
         showAdvancedSettings: false,
         showOverriddenSettingsOnly: false
@@ -28,9 +38,17 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_SETTING:
+            const newCurrentScopeOverrides = {
+                ...state.settingOverrides[state.currentScope],
+                [action.settingKey]: action.settingValue
+            };
+
             return {
                 ...state,
-                settingOverrides: Object.assign({}, state.settingOverrides, { [action.settingKey]: action.settingValue })
+                settingOverrides: {
+                    ...state.settingOverrides,
+                    [state.currentScope]: newCurrentScopeOverrides
+                }
             }
         case CHANGE_DISPLAY_PROP:
             return {
@@ -39,6 +57,11 @@ export default (state = initialState, action) => {
                     ...state.displayProps,
                     [action.propId]: action.value
                 }
+            }
+        case CHANGE_CURRENT_SCOPE:
+            return {
+                ...state,
+                currentScope: action.scope
             }
 
         default:
@@ -62,6 +85,15 @@ export const changeDisplayProp = (propId: string, value: boolean) => {
             type: CHANGE_DISPLAY_PROP,
             propId,
             value
+        })
+    }
+}
+
+export const changeCurrentScope = (scope: SettingsScope) => {
+    return dispatch => {
+        dispatch({
+            type: CHANGE_CURRENT_SCOPE,
+            scope
         })
     }
 }

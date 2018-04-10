@@ -154,7 +154,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
 
 const mapStateToProps = state => ({
     settings: state.settings.settings,
-    settingOverrides: state.settings.settingOverrides,
+    settingOverrides: state.settings.settingOverrides[state.settings.currentScope],
     displayProps: state.settings.displayProps
 });
 
