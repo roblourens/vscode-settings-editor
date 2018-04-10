@@ -83,6 +83,10 @@ const decorate = withStyles(theme => ({
     },
     editorControl: {
         float: 'right'
+    },
+
+    modifiedBool: {
+        borderBottom: '1px solid red'
     }
 }));
 

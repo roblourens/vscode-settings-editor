@@ -43,7 +43,7 @@ interface ValueProps {
 
 class SettingValue extends React.PureComponent<ValueProps> {
     protected handleChange() {
-        return event => {
+        return (event, arg?) => {
             this.props.onChange(event.target.value);
         };
     }
@@ -57,10 +57,17 @@ class SettingValue extends React.PureComponent<ValueProps> {
 }
 
 class BoolSettingValue extends SettingValue {
+    protected handleChange() {
+        return (event, checked) => {
+            this.props.onChange(checked);
+        };
+    }
+
     render() {
-        const { setting, classes } = this.props;
+        const { setting, classes, value } = this.props;
         return (
             <Checkbox
+                className={setting.default !== value ? classes.modifiedBool : ''}
                 defaultChecked={setting.default}
                 onChange={this.handleChange()}
             />
