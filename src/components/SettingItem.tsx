@@ -25,7 +25,7 @@ const SettingItem = class extends React.PureComponent<ItemProps & WithStyles<'ro
 
         return (
             <ListItem button={true} className={classes.listItem} >
-                <ListItemText primary={name} secondary={setting.description} className={classes.listItemText} />
+                <ListItemText title={getActualSettingName(setting)} primary={name} secondary={setting.description} className={classes.listItemText} />
                 <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(this.props)}</ListItemSecondaryAction>
             </ListItem>
         );
@@ -159,8 +159,7 @@ function renderSettingValue(itemProps: ItemProps) {
 }
 
 function getSettingName(s: Setting): string {
-    let name = s.name
-        .replace(/^Commonly Used\./, '');
+    let name = getActualSettingName(s);
 
     const lastDotIdx = name.lastIndexOf('.');
     if (lastDotIdx >= 0) {
@@ -172,4 +171,10 @@ function getSettingName(s: Setting): string {
         .replace(/([a-z])([A-Z])/g, '$1 $2') // fooBar => foo Bar
         .replace(/^[a-z]/g, match => match.toUpperCase()) // foo => Foo
         .replace(/ [a-z]/g, match => match.toUpperCase()) // Foo bar => Foo Bar
+}
+
+ // This is a lazy hack
+function getActualSettingName(s: Setting): string {
+    return s.name
+        .replace(/^Commonly Used\./, '');
 }
