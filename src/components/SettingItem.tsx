@@ -18,18 +18,14 @@ export interface ItemProps {
     classes?: any;
 }
 
-// const decorate = withStyles((theme: any) => ({
-
-// }));
-
 const SettingItem = class extends React.PureComponent<ItemProps & WithStyles<'root'>> {
     render() {
         const { classes, setting } = this.props;
-        const name = setting.name.replace(/^Commonly Used\./, '');
+        const name = getSettingName(setting);
 
         return (
             <ListItem button={true} className={classes.listItem} >
-                <ListItemText primary={`"${name}"`} secondary={setting.description} className={classes.listItemText} />
+                <ListItemText primary={name} secondary={setting.description} className={classes.listItemText} />
                 <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(this.props)}</ListItemSecondaryAction>
             </ListItem>
         );
@@ -155,8 +151,25 @@ function renderSettingValue(itemProps: ItemProps) {
         setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         setting.type === SettingType[SettingType.string] ? <StringSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         setting.type === SettingType[SettingType.number] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
+        setting.type === SettingType[SettingType.integer] ? <NumberSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         setting.type === SettingType[SettingType.object] ? <ObjectSettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         setting.type === SettingType[SettingType.array] ? <ArraySettingValue value={value} onChange={onChange} setting={setting} classes={classes} /> :
         null
     );
+}
+
+function getSettingName(s: Setting): string {
+    let name = s.name
+        .replace(/^Commonly Used\./, '');
+
+    const lastDotIdx = name.lastIndexOf('.');
+    if (lastDotIdx >= 0) {
+        name = name.substr(0, lastDotIdx) + ': ' + name.substr(lastDotIdx + 1);
+    }
+
+    return name
+        .replace(/\.([a-z])/, (match, p1) => `.${p1.toUpperCase()}`)
+        .replace(/([a-z])([A-Z])/g, '$1 $2') // fooBar => foo Bar
+        .replace(/^[a-z]/g, match => match.toUpperCase()) // foo => Foo
+        .replace(/ [a-z]/g, match => match.toUpperCase()) // Foo bar => Foo Bar
 }

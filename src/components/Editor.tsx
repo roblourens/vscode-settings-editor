@@ -2,14 +2,16 @@ import * as React from 'react';
 import { withStyles, WithStyles } from 'material-ui/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { TextField, Checkbox, FormControlLabel } from 'material-ui';
+import { TextField } from 'material-ui';
 
-import { changeSetting, DisplayProps, changeDisplayProp, Setting } from './../modules/settings'
+import { changeSetting, DisplayProps, Setting } from './../modules/settings'
 import { SettingList } from './SettingList';
+import EditorControls from './EditorControls';
 
 export enum SettingType {
     string,
     number,
+    integer,
     boolean,
     object,
     array
@@ -96,7 +98,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
     render() {
         return (
             <div className={this.props.classes.root}>
-                <EditorControlsConnected
+                <EditorControls
                     classes={this.props.classes}
                 />
                 <TextField
@@ -160,61 +162,6 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(SearchableSettings as any);
-
-interface ControlsProps {
-    displayProps: DisplayProps;
-    classes: any;
-
-    onChangeDisplayProp: (propId: string, value: boolean) => void;
-}
-
-class EditorControls extends React.PureComponent<ControlsProps> {
-    render() {
-        return (
-            <div className={this.props.classes.editorControlsContainer}>
-                <FormControlLabel
-                    className={this.props.classes.editorControl}
-                    control={
-                        <Checkbox
-                            defaultChecked={this.props.displayProps.showOverriddenSettingsOnly}
-                            onChange={this.getCheckboxChangeHandler('showOverriddenSettingsOnly')}
-                        />
-                    }
-                    label="Show overridden settings only"
-                />
-                <FormControlLabel
-                    className={this.props.classes.editorControl}
-                    control={
-                        <Checkbox
-                            defaultChecked={this.props.displayProps.showAdvancedSettings}
-                            onChange={this.getCheckboxChangeHandler('showAdvancedSettings')}
-                        />
-                    }
-                    label="Show advanced settings"
-                />
-            </div>
-        )
-    }
-
-    private getCheckboxChangeHandler(displayPropName: string) {
-        return (e, checked) => {
-            this.props.onChangeDisplayProp(displayPropName, checked);
-        }
-    }
-}
-
-const mapStateToPropsEC = state => ({
-    displayProps: state.settings.displayProps,
-});
-
-const mapDispatchToPropsEC = dispatch => bindActionCreators({
-    onChangeDisplayProp: changeDisplayProp
-}, dispatch);
-
-const EditorControlsConnected: any = connect(
-    mapStateToPropsEC,
-    mapDispatchToPropsEC
-)(EditorControls as any);
 
 function words(str: string) {
     return str.toLowerCase()

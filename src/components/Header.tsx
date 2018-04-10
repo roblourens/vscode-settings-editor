@@ -5,14 +5,6 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
 import { Toolbar } from 'material-ui';
 
-function TabContainer(props) {
-    return (
-        <Typography component="div" style={{ padding: 8 * 2 }}>
-            {props.children}
-        </Typography>
-    );
-}
-
 const styles = theme => ({
     root: {
         flexGrow: 1,
