@@ -149,7 +149,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
         if (this.state.query) {
             const queryWords = words(this.state.query);
 
-            filteredSettings = this.props.settings.filter(s => {
+            filteredSettings = filteredSettings.filter(s => {
                 return match(s.name, queryWords) || match(s.description, queryWords);
             });
         }
