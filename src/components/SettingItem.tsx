@@ -113,6 +113,7 @@ class ObjectSettingValue extends SettingValue {
         const { setting, classes } = this.props;
         return (
             <TextField
+                inputProps={({ className: classes.objectValue })}
                 disabled={true}
                 value="Edit in settings.json!"
                 onChange={this.handleChange()}
@@ -126,6 +127,7 @@ class ArraySettingValue extends SettingValue {
         const { setting, classes } = this.props;
         return (
             <TextField
+                inputProps={({ className: classes.arrayValue })}
                 disabled={true}
                 value="Edit in settings.json!"
                 onChange={this.handleChange()}

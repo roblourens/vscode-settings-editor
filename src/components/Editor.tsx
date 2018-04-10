@@ -87,6 +87,12 @@ const decorate = withStyles(theme => ({
 
     modifiedBool: {
         borderBottom: '1px solid red'
+    },
+    objectValue: {
+        textAlign: 'right'
+    },
+    arrayValue: {
+        textAlign: 'right'
     }
 }));
 
