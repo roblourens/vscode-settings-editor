@@ -44,7 +44,6 @@ const decorate = withStyles(theme => ({
         margin: '70px auto 0',
         backgroundColor: theme.palette.background.default,
         position: 'relative' as 'relative', // I hate TS
-        overflow: 'auto' as 'auto',
         padding: '5px'
     },
     searchInput: {
@@ -110,6 +109,11 @@ const decorate = withStyles(theme => ({
 
     paper: {
         paddingBottom: 7
+    },
+
+    revertButton: {
+        position: 'absolute' as 'absolute',
+        right: -55
     }
 }));
 

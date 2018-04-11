@@ -23,9 +23,10 @@ export function SettingList(props: EditorProps) {
                     <Paper className={classes.paper}>
                         <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
                         {group.settings.map(s => {
-                            const value = typeof props.settingOverrides[props.currentScope][s.name] === 'undefined' ?
-                                s.default :
-                                props.settingOverrides[props.currentScope][s.name];
+                            const isConfigured = typeof props.settingOverrides[props.currentScope][s.name] !== 'undefined';
+                            const value = isConfigured ?
+                                props.settingOverrides[props.currentScope][s.name] :
+                                s.default;
                             const otherConfiguredScopes = getOtherConfiguredScopes(props.settingOverrides, props.currentScope, s);
 
                             return (<SettingItem
@@ -36,6 +37,7 @@ export function SettingList(props: EditorProps) {
                                 onChange={v => onItemChange(s.name, v)}
                                 value={value}
                                 otherConfiguredScopes={otherConfiguredScopes}
+                                isConfigured={isConfigured}
                             />);
                         })}
                     </Paper>

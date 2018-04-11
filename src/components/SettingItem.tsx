@@ -9,12 +9,13 @@ import { withStyles, WithStyles } from 'material-ui/styles';
 
 import { SettingType, SettingsGroup } from './Editor';
 import { Setting, SettingsScope } from '../modules/settings';
-import { Typography } from 'material-ui';
+import { Typography, IconButton, Icon } from 'material-ui';
 
 export interface ItemProps {
     group: SettingsGroup;
     setting: Setting;
     value: any;
+    isConfigured: boolean;
     otherConfiguredScopes: SettingsScope[];
     onChange: (value: any) => void;
     classes?: any;
@@ -29,7 +30,11 @@ const SettingItem = class extends React.PureComponent<ItemProps & WithStyles<'ro
             <div>
                 <ListItem button={true} className={classes.listItem} >
                     <ListItemText title={getActualSettingName(setting)} primary={name} secondary={setting.description} className={classes.listItemText} />
-                    <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(this.props)}</ListItemSecondaryAction>
+                    <ListItemSecondaryAction className={classes.settingValueEditor}>
+                        {renderSettingValue(this.props)}
+                    </ListItemSecondaryAction>
+                    {this.renderRevertButton()}
+
                 </ListItem>
                 {this.renderOtherScopes()}
             </div>
@@ -40,6 +45,14 @@ const SettingItem = class extends React.PureComponent<ItemProps & WithStyles<'ro
         const otherScopeNames = this.props.otherConfiguredScopes.map(s => s.toString()).join(', ');
         return this.props.otherConfiguredScopes && this.props.otherConfiguredScopes.length ?
             (<Typography className={this.props.classes.alsoConfiguredHint}>- Also configured in: {otherScopeNames}</Typography>) :
+            null;
+    }
+
+    private renderRevertButton() {
+        return this.props.isConfigured ? (
+            <IconButton className={this.props.classes.revertButton} onClick={() => this.props.onChange(undefined)} title="Revert">
+                <Icon>undo</Icon>
+            </IconButton>) :
             null;
     }
 };

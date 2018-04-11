@@ -1,4 +1,4 @@
-export const CHANGE_SETTING = 'settings/CHANGESETTING'
+export const CHANGE_SETTING = 'settings/CHANGE_SETTING'
 export const CHANGE_DISPLAY_PROP = 'settings/CHANGE_DISPLAY_PROP'
 export const CHANGE_CURRENT_SCOPE = 'settings/CHANGE_CURRENT_SCOPE'
 
