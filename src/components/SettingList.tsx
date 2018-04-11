@@ -5,7 +5,7 @@ import { Paper } from 'material-ui';
 
 import SettingItem from './SettingItem';
 import { EditorProps, SettingsGroup } from './Editor';
-import { Setting } from '../modules/settings';
+import { Setting, SettingsScope } from '../modules/settings';
 
 export function SettingList(props: EditorProps) {
     const { classes, settings } = props;
@@ -23,8 +23,11 @@ export function SettingList(props: EditorProps) {
                     <Paper className={classes.paper}>
                         <ListSubheader className={classes.listSubheader}>{uppercaseFirstLetter(group.name)}</ListSubheader>
                         {group.settings.map(s => {
-                            const value = typeof props.settingOverrides[s.name] === 'undefined' ? s.default : props.settingOverrides[s.name];
-                            const isOverridden = props.upstreamSettingOverrides && typeof props.upstreamSettingOverrides[s.name] !== 'undefined';
+                            const value = typeof props.settingOverrides[props.currentScope][s.name] === 'undefined' ?
+                                s.default :
+                                props.settingOverrides[props.currentScope][s.name];
+                            const otherConfiguredScopes = getOtherConfiguredScopes(props.settingOverrides, props.currentScope, s);
+
                             return (<SettingItem
                                 classes={classes}
                                 group={group}
@@ -32,7 +35,7 @@ export function SettingList(props: EditorProps) {
                                 key={`item-${group.name}-${s.name}`}
                                 onChange={v => onItemChange(s.name, v)}
                                 value={value}
-                                isOverridden={isOverridden}
+                                otherConfiguredScopes={otherConfiguredScopes}
                             />);
                         })}
                     </Paper>
@@ -74,4 +77,11 @@ function removeGroupWithName(groups: SettingsGroup[], name: string): SettingsGro
 
 function uppercaseFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.substr(1);
+}
+
+function getOtherConfiguredScopes(settingOverrides, currentScope: SettingsScope, setting: Setting): SettingsScope[] {
+    return Object.keys(SettingsScope)
+        .map(scopeKey => SettingsScope[scopeKey])
+        .filter(scope => scope !== currentScope)
+        .filter(scope => typeof settingOverrides[scope][setting.name] !== 'undefined');
 }

@@ -8,13 +8,14 @@ import List, { ListItem, ListItemText, ListItemSecondaryAction } from 'material-
 import { withStyles, WithStyles } from 'material-ui/styles';
 
 import { SettingType, SettingsGroup } from './Editor';
-import { Setting } from '../modules/settings';
+import { Setting, SettingsScope } from '../modules/settings';
+import { Typography } from 'material-ui';
 
 export interface ItemProps {
     group: SettingsGroup;
     setting: Setting;
     value: any;
-    isOverridden: boolean;
+    otherConfiguredScopes: SettingsScope[];
     onChange: (value: any) => void;
     classes?: any;
 }
@@ -25,11 +26,21 @@ const SettingItem = class extends React.PureComponent<ItemProps & WithStyles<'ro
         const name = getSettingName(setting);
 
         return (
-            <ListItem button={true} className={classes.listItem} >
-                <ListItemText title={getActualSettingName(setting)} primary={name} secondary={setting.description} className={classes.listItemText} />
-                <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(this.props)}</ListItemSecondaryAction>
-            </ListItem>
+            <div>
+                <ListItem button={true} className={classes.listItem} >
+                    <ListItemText title={getActualSettingName(setting)} primary={name} secondary={setting.description} className={classes.listItemText} />
+                    <ListItemSecondaryAction className={classes.settingValueEditor}>{renderSettingValue(this.props)}</ListItemSecondaryAction>
+                </ListItem>
+                {this.renderOtherScopes()}
+            </div>
         );
+    }
+
+    private renderOtherScopes() {
+        const otherScopeNames = this.props.otherConfiguredScopes.map(s => s.toString()).join(', ');
+        return this.props.otherConfiguredScopes && this.props.otherConfiguredScopes.length ?
+            (<Typography className={this.props.classes.alsoConfiguredHint}>- Also configured in: {otherScopeNames}</Typography>) :
+            null;
     }
 };
 
@@ -53,7 +64,7 @@ class SettingValue extends React.PureComponent<ValueProps> {
     protected getHelperText() {
         const { setting } = this.props;
         return this.props.isOverridden ? 'Overridden in another scope' :
-            (setting.default !== this.props.value) ? 'Modified' :
+            (setting.default !== this.props.value) ? 'Configured' :
             '';
     }
 
@@ -167,7 +178,9 @@ class EnumSettingValue extends SettingValue {
 }
 
 function renderSettingValue(itemProps: ItemProps) {
-    const { setting, value, onChange, classes, isOverridden } = itemProps;
+    const { setting, value, onChange, classes } = itemProps;
+    const isOverridden = false;
+
     return (
         setting.type === SettingType[SettingType.boolean] ? <BoolSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :
         setting.type === SettingType[SettingType.string] && setting.enum ? <EnumSettingValue value={value} onChange={onChange} setting={setting} classes={classes} isOverridden={isOverridden} /> :

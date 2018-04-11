@@ -24,7 +24,7 @@ class EditorControls extends React.PureComponent<ControlsProps> {
                             onChange={this.getCheckboxChangeHandler('showOverriddenSettingsOnly')}
                         />
                     }
-                    label="Show modified settings only"
+                    label="Show configured settings only"
                 />
                 <FormControlLabel
                     className={this.props.classes.editorControl}

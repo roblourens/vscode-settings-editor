@@ -25,7 +25,7 @@ export interface SettingsGroup {
 export interface EditorProps {
     settings: Setting[];
     settingOverrides: any;
-    upstreamSettingOverrides: any;
+    currentScope: SettingsScope;
     classes?: any;
     onChangeSetting?: typeof changeSetting;
 
@@ -59,7 +59,8 @@ const decorate = withStyles(theme => ({
 
     // Moved these out to the top level for perf reasons. Not sure what the proper usage is.
     'listItem': {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        paddingBottom: 4
     },
     'listItem:hover': {
         backgroundColor: 'initial !important'
@@ -98,6 +99,13 @@ const decorate = withStyles(theme => ({
 
     overridden: {
         color: 'gray'
+    },
+
+    alsoConfiguredHint: {
+        color: 'gray',
+        marginRight: 24,
+        marginTop: -5,
+        textAlign: 'right'
     }
 }));
 
@@ -126,7 +134,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
                     settings={this.getFilteredSettings()}
                     classes={this.props.classes}
                     settingOverrides={this.props.settingOverrides}
-                    upstreamSettingOverrides={this.props.upstreamSettingOverrides}
+                    currentScope={this.props.currentScope}
                     onChangeSetting={this.props.onChangeSetting}
                 />
             </div>
@@ -149,7 +157,7 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
         }
 
         if (this.props.displayProps!.showOverriddenSettingsOnly) {
-            filteredSettings = filteredSettings.filter(s => !!this.props.settingOverrides[s.name]);
+            filteredSettings = filteredSettings.filter(s => !!this.props.settingOverrides[this.props.currentScope][s.name]);
         }
 
         if (this.state.query) {
@@ -166,8 +174,8 @@ const SearchableSettings = decorate(class extends React.PureComponent<EditorProp
 
 const mapStateToProps = state => ({
     settings: state.settings.settings,
-    settingOverrides: state.settings.settingOverrides[state.settings.currentScope],
-    upstreamSettingOverrides: state.settings.currentScope === SettingsScope.User ? state.settings.settingOverrides[SettingsScope.Workspace] : undefined,
+    settingOverrides: state.settings.settingOverrides,
+    currentScope: state.settings.currentScope,
     displayProps: state.settings.displayProps
 });
 

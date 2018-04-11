@@ -17,8 +17,10 @@ export interface Setting {
 }
 
 export enum SettingsScope {
-    User = 'user',
-    Workspace = 'workspace'
+    User = 'User',
+    Workspace = 'Workspace',
+    FolderA = 'Folder A',
+    FolderB = 'Folder B'
 }
 
 const configuration = require('../configuration_full.json').settings;
@@ -26,7 +28,9 @@ const initialState = {
     settings: configuration as Setting[],
     settingOverrides: {
         [SettingsScope.Workspace]: {},
-        [SettingsScope.User]: {}
+        [SettingsScope.User]: {},
+        [SettingsScope.FolderA]: {},
+        [SettingsScope.FolderB]: {},
     },
     currentScope: SettingsScope.User,
     displayProps: <DisplayProps> {

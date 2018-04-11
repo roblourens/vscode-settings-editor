@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
-import { Toolbar, WithStyles } from 'material-ui';
+import { Toolbar, WithStyles, Select, TextField, MenuItem } from 'material-ui';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { SettingsScope, changeCurrentScope } from '../modules/settings';
@@ -47,6 +47,8 @@ const Header = decorate(class extends React.PureComponent<HeaderProps & WithStyl
                         <Tabs value={currentScope} onChange={this.handleChange}>
                             <Tab label="User Settings" value={SettingsScope.User} />
                             <Tab label="Workspace Settings" value={SettingsScope.Workspace} />
+                            <Tab label="Folder A Settings" value={SettingsScope.FolderA} />
+                            <Tab label="Folder B Settings" value={SettingsScope.FolderB} />
                         </Tabs>
                     </Toolbar>
                 </AppBar>
