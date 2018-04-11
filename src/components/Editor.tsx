@@ -106,6 +106,10 @@ const decorate = withStyles(theme => ({
         marginRight: 24,
         marginTop: -5,
         textAlign: 'right'
+    },
+
+    paper: {
+        paddingBottom: 7
     }
 }));
 
