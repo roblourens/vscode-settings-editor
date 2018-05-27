@@ -5,11 +5,38 @@
     "version": "0.2.0",
     "configurations": [
         {
+            // "debugServer": 4712,
+            "trace": true,
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "smartStep": true,
+            "skipFiles": [
+                "bootstrap f8d96f22e9991b7ab95b"
+            ]
+        },
+        {
+            "name": "Debug CRA Tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts-ts",
+            "args": [
+                "test",
+                "--runInBand",
+                "--no-cache",
+                "--env=jsdom",
+                "--moduleNameMapper={\"^~/(.*)\":\"<rootDir>/src/$1\"}",
+                "--showConfig"
+            ],
+            "stopOnEntry": true,
+            "trace": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            // "outputCapture": "std",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }

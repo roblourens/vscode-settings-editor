@@ -94,6 +94,12 @@
             "type": "object"
         },
         {
+            "name": "Commonly Used.files.associations",
+            "description": "Configure file associations to languages (e.g. \"*.extension\": \"html\"). These have precedence over the default associations of the languages installed.",
+            "default": {},
+            "type": "object"
+        },
+        {
             "name": "[git-commit]",
             "description": "Configure editor settings to be overridden for [git-commit] language.",
             "default": {
