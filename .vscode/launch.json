@@ -14,7 +14,7 @@
             "webRoot": "${workspaceFolder}",
             "smartStep": true,
             "skipFiles": [
-                "bootstrap f8d96f22e9991b7ab95b"
+                "bootstrap *"
             ]
         },
         {
